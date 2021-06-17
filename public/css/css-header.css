@@ -1,0 +1,27 @@
+.nav-item a{
+    color: black;
+    text-decoration: none;
+}
+
+.nav-item a:hover{
+    border-bottom: solid 4px #21b0b6;
+}
+
+.nav-item.route-active a{
+    border-bottom: solid 4px #21b0b6;
+}
+
+.navbar{
+    height: 60px;
+}
+
+.content-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+.logo-header{
+    height: 75%;
+}
