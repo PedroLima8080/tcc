@@ -25,6 +25,11 @@
     align-items: center;
     justify-content: center;
     height: 60px;
+    margin-left: 15px;
+}
+
+.navbar-toggler {
+    margin-right: 15px;
 }
 
 .logo-header {
@@ -41,7 +46,10 @@ form.dropdown-item {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 980px) {
+    .nav-item {
+        margin-left: 0 !important;
+    }
     .nav-item a.route {
         border: none;
         display: block;
@@ -52,5 +60,14 @@ form.dropdown-item {
     }
     .dropdown {
         display: none !important;
+    }
+    .navbar {
+        padding: 0 !important;
+    }
+    .content-logo {
+        margin-left: 15px;
+    }
+    .navbar-toggler {
+        margin-right: 15px;
     }
 }
