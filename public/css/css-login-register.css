@@ -1,8 +1,9 @@
-html, body{
+html,
+body {
     height: 100%;
 }
 
-.content{
+.content {
     background-image: url("../img/fundo.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -14,19 +15,19 @@ html, body{
     justify-content: center;
 }
 
-.form{
+.form {
     background-color: rgba(255, 255, 255, 0.782);
     border-radius: 8px;
     width: 500px;
     padding: 10px 20px;
 }
 
-.btn-login{
-    background-color: #21b0b6;
+.btn-login {
+    background-color: #21b0b6 !important;
     width: 80px;
 }
 
-.title-login{
+.title-login {
     background-color: #226777;
     border-radius: 4px;
 }

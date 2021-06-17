@@ -82,3 +82,7 @@
     </form>
 
 @endsection
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/css-login-register.css') }}">
+@endpush

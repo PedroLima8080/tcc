@@ -1,27 +1,56 @@
-.nav-item a{
+.nav-item a {
     color: black;
     text-decoration: none;
 }
 
-.nav-item a:hover{
+.nav-item a.route:hover {
     border-bottom: solid 4px #21b0b6;
 }
 
-.nav-item.route-active a{
+.nav-item.route-active a {
     border-bottom: solid 4px #21b0b6;
 }
 
-.navbar{
+.navbar {
     height: 60px;
+    background-color: white !important;
 }
 
-.content-logo{
+.navbar-collapse {
+    background-color: white;
+}
+
+.content-logo {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 60px;
 }
 
-.logo-header{
+.logo-header {
     height: 75%;
+}
+
+i.icon-header {
+    color: black;
+    font-size: 1.7em;
+    text-decoration: none !important;
+}
+
+form.dropdown-item {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 960px) {
+    .nav-item a.route {
+        border: none;
+        display: block;
+        margin-top: 10px;
+    }
+    .nav-item a.route:hover {
+        border: none;
+    }
+    .dropdown {
+        display: none !important;
+    }
 }
