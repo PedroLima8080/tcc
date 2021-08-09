@@ -7,6 +7,7 @@
 
     @stack('styles')
 
+    <link rel="shortcut icon" href="icon.ico">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/css-header.css') }}" rel="stylesheet">
     <link href="{{ asset('css/css-footer.css') }}" rel="stylesheet">
