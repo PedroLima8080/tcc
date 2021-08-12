@@ -30,5 +30,5 @@ Route::post('/register', [AuthController::class, 'registerUser'])
     ->middleware('guest');
 
 Route::post('/logout', [AuthController::class, 'logoutUser'])
-    ->middleware('auth')
+    ->middleware('auth:user')
     ->name('logout');

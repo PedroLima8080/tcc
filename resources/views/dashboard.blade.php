@@ -11,6 +11,7 @@
             <span class="mt-2">Consulte a disponibilidade do livro que</span>
             <span class="mt-2">precisa nas bibliotecas cadastradas</span>
         </div>
+
         <ul class="topics pt-3 pb-3">
             <li class="topic-item d-flex flex-column justify-content-center align-items-center">
                 <h3 class="text-center mt-2">Praticidade</h3>
@@ -32,9 +33,17 @@
                 <p class="text-justify">Leia artigos que vão te ajudar a fazer os trabalhos com mais excelência.</p>
             </li>
         </ul>
+
+        <div id="teste">
+
+        </div>
     </div>
 @endsection
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('js/teste.js') }}"></script>
 @endpush

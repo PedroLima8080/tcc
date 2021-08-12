@@ -46,6 +46,16 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'user',
+        ],
+
+        'library' => [
+            'driver' => 'session',
+            'provider' => 'library',
+        ]
     ],
 
     /*
@@ -70,6 +80,16 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+
+        'user' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+
+        'library' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Library::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
