@@ -54,6 +54,37 @@ li+li {
     font-weight: bold;
 }
 
+.sla {
+    padding: 0px 20px;
+}
+
+.show-books {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 25px;
+}
+
+.show-books .book {
+    box-shadow: 0 0 10px 1px rgb(211, 209, 209);
+    border-radius: 6px;
+}
+
+.book .infos {
+    width: 100%;
+    padding: 15px 0px;
+    max-height: 150px;
+    overflow-y: scroll;
+}
+
+.book .infos::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+}
+
+.book .infos::-webkit-scrollbar-thumb {
+    background: #dad7d7;
+}
+
 @media screen and (max-width: 980px) {
     .background-image span {
         display: none;
