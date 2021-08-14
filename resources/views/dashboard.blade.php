@@ -34,20 +34,22 @@
         </li>
     </ul>
 
-    <div class="sla">
+    <div class="library">
+        <hr class="mt-5">
         <h1 class="mt-5 text-center">Nossos Livros</h1>
         <form action="" id="search" class="w-100">
             <div class="form-group">
-                <label for="" name="title">Nome</label>
+                <label for="title" name="title">Título:</label>
                 <input type="text" class="form-control" id="title" name="title">
             </div>
             <div class="d-flex justify-content-center">
-                <button class="btn btn-success w-25 mt-3 mb-2 mx-auto">Pesquisar</button>
+                <button class="btn-login w-25 mt-3 mb-2 mx-auto">Pesquisar</button>
             </div>
         </form>
         <hr class="mb-5">
+        <div id="status" class="">
+        </div>
         <div class="show-books" id="teste">
-            
         </div>
     </div>
 </div>
@@ -58,5 +60,5 @@
 @endpush
 
 @push('scripts')
-<script src="{{ asset('js/teste.js') }}"></script>
+<script src="{{ asset('js/searchHome.js') }}"></script>
 @endpush
