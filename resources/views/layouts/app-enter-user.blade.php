@@ -7,6 +7,8 @@
 
     @stack('styles')
 
+    <link rel="shortcut icon" href="{{ asset('img/logo_vertical.png') }}" >
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/css-header.css') }}" rel="stylesheet">
     <link href="{{ asset('css/css-footer.css') }}" rel="stylesheet">
@@ -16,13 +18,13 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    @include('components.header')
-
     <div class="content">
         @yield('content')
     </div>
     
-    @include('components.footer')
+    @include('components.footer-absolute')
+    
+
     <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('scripts')
 </body>
