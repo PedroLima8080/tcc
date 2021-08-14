@@ -41,7 +41,7 @@ async function write(title) {
 
 
         divEl.innerHTML += `
-        <div class="book d-flex flex-row align-items-center">
+        <div class="book">
             <img src="${asset}/img/book.png" class="mr-3 ml-3">
             <div class="infos">
                 <h2>${title}</h2>   

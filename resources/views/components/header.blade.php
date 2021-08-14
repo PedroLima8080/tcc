@@ -11,10 +11,12 @@
             <li class="nav-item {{ Request::path() === 'home' ? 'route-active' : '' }}">
                 <a class="h5 route" href="#">HOME </a>
             </li>
-            <li
-                class="nav-item {{ Request::path() === 'login' ? 'route-active' : (Request::path() === 'register' ? 'route-active' : '') }}">
-                <a class="h5 route" href="#">CADASTRO</a>
-            </li>
+            @if (!Auth::check())
+                <li
+                    class="nav-item {{ Request::path() === 'login' ? 'route-active' : (Request::path() === 'register' ? 'route-active' : '') }}">
+                    <a class="h5 route" href="#">CADASTRO</a>
+                </li>
+            @endif
             <li class="nav-item" {{ Request::path() === 'livros' ? 'route-active' : '' }}>
                 <a class="h5 route" href="#">LIVROS</a>
             </li>

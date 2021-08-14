@@ -7,6 +7,7 @@ html {
     max-width: none;
     margin: 0 auto !important;
     float: none !important;
+    margin-top: 60px !important;
 }
 
 .loader {

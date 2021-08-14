@@ -37,7 +37,7 @@
     <div class="library">
         <hr class="mt-5">
         <h1 class="mt-5 text-center">Nossos Livros</h1>
-        <form action="" id="search" class="w-100">
+        <form method="POST" id="search" class="w-100">
             <div class="form-group">
                 <label for="title" name="title">Título:</label>
                 <input type="text" class="form-control" id="title" name="title">
