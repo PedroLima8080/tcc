@@ -9,16 +9,19 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav w-100 d-flex justify-content-around align-items-center">
             <li class="nav-item {{ Request::path() === 'home' ? 'route-active' : '' }}">
-                <a class="h5 route" href="#">HOME </a>
+                <a class="h4 route" href="#">HOME </a>
             </li>
             @if (!Auth::check())
                 <li
                     class="nav-item {{ Request::path() === 'login' ? 'route-active' : (Request::path() === 'register' ? 'route-active' : '') }}">
-                    <a class="h5 route" href="#">CADASTRO</a>
+                    <a class="h4 route" href="#">CADASTRO</a>
                 </li>
             @endif
             <li class="nav-item" {{ Request::path() === 'livros' ? 'route-active' : '' }}>
-                <a class="h5 route" href="#">LIVROS</a>
+                <a class="h4 route" href="#">LIVROS</a>
+            </li>
+            <li class="nav-item" {{ Request::path() === 'favoritos' ? 'route-active' : '' }}>
+                <a class="h4 route" href="#">FAVORITOS</a>
             </li>
             @if (Auth::check())
                 <div class="dropdown">
