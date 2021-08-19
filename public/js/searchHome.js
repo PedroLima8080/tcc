@@ -42,7 +42,7 @@ async function write(title) {
 
         divEl.innerHTML += `
         <div class="book">
-            <img src="${asset}/img/book.png" class="mr-3 ml-3">
+            <img src="${asset}/img/book64.png" class="mr-3 ml-3 p-4">
             <div class="infos">
                 <h2>${title}</h2>   
                 <p class="info">${info}</p>
