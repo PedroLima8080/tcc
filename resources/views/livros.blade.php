@@ -23,7 +23,6 @@
             <div class="show-books" id="teste">
             </div>
         </div>
-        <span class="mt-5 text-center">LIVROS EM DESTAQUE</span>
     </div>
 </div>
 @endsection
