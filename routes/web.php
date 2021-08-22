@@ -20,3 +20,13 @@ Route::get('/', function () {
 Route::get('/home', function(){
     return view('dashboard');
 })->middleware('auth:user');
+
+Route::get('/livros', function(){
+    return view('livros');
+})->middleware('auth:user');
+
+Route::get('/favoritos', function(){
+    return view('favoritos');
+})->middleware('auth:user');
+
+

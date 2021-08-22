@@ -9,7 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav w-100 d-flex justify-content-around align-items-center">
             <li class="nav-item {{ Request::path() === 'home' ? 'route-active' : '' }}">
-                <a class="h4 route" href="#">HOME </a>
+                <a class="h4 route" href="home">HOME </a>
+            </li>
+            <li class="nav-item {{ Request::path() === 'livros' ? 'route-active' : '' }}">
+                <a class="h4 route" href="livros">LIVROS</a>
+            </li>
+            <li class="nav-item {{ Request::path() === 'favoritos' ? 'route-active' : '' }}">
+                <a class="h4 route" href="favoritos">FAVORITOS</a>
             </li>
             @if (!Auth::check())
                 <li
@@ -17,12 +23,6 @@
                     <a class="h4 route" href="#">CADASTRO</a>
                 </li>
             @endif
-            <li class="nav-item" {{ Request::path() === 'livros' ? 'route-active' : '' }}>
-                <a class="h4 route" href="#">LIVROS</a>
-            </li>
-            <li class="nav-item" {{ Request::path() === 'favoritos' ? 'route-active' : '' }}>
-                <a class="h4 route" href="#">FAVORITOS</a>
-            </li>
             @if (Auth::check())
                 <div class="dropdown">
                     <div class="btn-group">
