@@ -42,9 +42,9 @@ async function write(title) {
 
         divEl.innerHTML += `
         <div class="book">
-            <img src="${asset}/img/book64.png" class="mr-3 ml-3 p-4">
+            <img src="${asset}/img/open-book.png" class="mr-3 ml-3 p-4">
             <div class="infos">
-                <h2>${title}</h2>   
+                <h4>${title}</h4>   
                 <p class="info">${info}</p>
                 <p>${ json.docs[i].pnx.display.creationdate[0]}</p> 
             </div>
@@ -61,11 +61,11 @@ function setStatus(status) {
             divInfosEl.innerHTML = '<div class="loader mr-auto ml-auto"></div>'
             break;
         case 'nothingData':
-            divInfosEl.innerHTML = '<h1 class="text-center" class="w-100">Nenhum resultado encontrado...</h1>'
+            divInfosEl.innerHTML = '<h1 class="text-center" class="w-100">Nenhum resultado encontrado</h1>'
             break;
 
         case 'insertTitle':
-            divInfosEl.innerHTML = '<h3 class="text-center" class="w-100">Pesquise algo...</h3>'
+            divInfosEl.innerHTML = '<h3 class="text-center" class="w-100"></h3>'
             break;
 
         case 'clear':

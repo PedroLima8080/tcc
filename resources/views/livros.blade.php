@@ -14,7 +14,7 @@
                     <input type="text" class="form-control" id="title" name="title">
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button class="btn-login w-25 mt-3 mb-2 mx-auto">Pesquisar</button>
+                    <button class="btn-login w-20 mt-3 mb-2 mx-auto">Pesquisar</button>
                 </div>
             </form>
             <hr class="mb-5">
