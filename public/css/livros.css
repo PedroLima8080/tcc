@@ -3,74 +3,55 @@
     margin: 0 auto !important;
     float: none !important;
 }
+
 .background-image {
-    background-color: rgb(255, 255, 255);
+    background-color: orange;
     width: 100%;
-    height: 67em; 
+    height: 19em;
     background-image: url('../img/img_livros.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
 }
+
 .background-image span {
-    background-color: #fdfdfd;
-    margin: 0 auto;
+    background-color: #21b0b6;
     width: min-content;
-    color: rgb(0, 0, 0);
-    /* font-weight: bold; */
-    font-size: 2em;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
     white-space: nowrap;
     padding: 0.05em 1em;
     border-radius: 0.1em;
-    display: flex;
-    justify-content: center;
-}
-.library {
-    padding: 0px 20px;
-}
-.show-books {
-    width: 100%;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 40px 25px;
 }
 
-.book {
-    box-shadow: 0 0 10px 1px rgb(211, 209, 209);
-    background-color: white;
-    border-radius: 6px;
+.topics {
+    list-style: none;
     display: flex;
+    justify-content: space-around;
     flex-direction: row;
-    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0 1.5em;
 }
 
-.book .infos {
-    width: 100%;
-    padding: 15px 0px;
-    max-height: 150px;
-    overflow-y: scroll;
+.topics .topic-item {
+    width: 175px;
+    min-width: 175px;
 }
 
-.book .infos::-webkit-scrollbar {
-    width: 6px;
-    background: transparent;
+li+li {
+    margin-left: 40px !important;
 }
 
-.book .infos::-webkit-scrollbar-thumb {
-    background: #dad7d7;
+.topics .topic-item img {
+    height: 125px;
+    border-radius: 4px;
 }
 
-@media screen and (max-width: 480px) {
-    .book {
-        padding: 25px 0px;
-        flex-direction: column;
-        overflow-y: hidden;
-        overflow-y: scroll;
-    }
-    .book .infos {
-        padding: 0px 10px;
-        overflow-y: unset;
-    }
+.topics .topic-item h3,
+.topics .topic-item h5 {
+    font-weight: bold;
 }
 
 @media screen and (max-width: 980px) {
@@ -89,9 +70,6 @@
     li.topic-item+li.topic-item {
         margin-left: 0 !important;
     }
-    .show-books {
-        grid-template-columns: minmax(0, 1fr);
-    }
 }
 
 @media all and (orientation: portrait) {
@@ -109,8 +87,5 @@
     }
     li.topic-item+li.topic-item {
         margin-left: 0 !important;
-    }
-    .show-books {
-        grid-template-columns: minmax(0, 1fr);
     }
 }

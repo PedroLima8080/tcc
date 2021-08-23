@@ -58,6 +58,7 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+<link rel="stylesheet" href="{{ asset('css/library.css') }}">
 @endpush
 
 @push('scripts')

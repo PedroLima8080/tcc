@@ -1,0 +1,69 @@
+.library {
+    padding: 0px 20px;
+}
+
+.show-books {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 40px 25px;
+}
+
+.book {
+    box-shadow: 0 0 10px 1px rgb(211, 209, 209);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-height: 250px;
+}
+
+.book .infos {
+    width: 100%;
+    height: 100%;
+    padding: 15px 0px;
+    max-height: 150px;
+    overflow-y: scroll;
+}
+
+.book .infos::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+}
+
+.book .infos::-webkit-scrollbar-thumb {
+    background: #dad7d7;
+}
+
+@media screen and (max-width: 480px) {
+    .book {
+        padding: 25px 0px;
+        flex-direction: column;
+        overflow-y: hidden;
+        overflow-y: scroll;
+    }
+    .book::-webkit-scrollbar {
+        width: 6px;
+        background: transparent;
+    }
+    .book::-webkit-scrollbar-thumb {
+        background: #dad7d7;
+    }
+    .book .infos {
+        padding: 0px 10px;
+        overflow-y: unset;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .show-books {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media all and (orientation: portrait) {
+    .show-books {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
