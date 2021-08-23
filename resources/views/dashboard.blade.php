@@ -5,7 +5,7 @@
 @section('content')
 <div class="home-page">
     <div class="background-image d-flex flex-column">
-        <span class="mt-4">Encontree</span>
+        <span class="mt-4">Encontre</span>
         <span class="mt-2">seus livros favoritos</span>
         <span class="mt-2">nas nossas bibliotecas!</span>
         <span class="mt-2">Consulte a disponibilidade do livro</span>
