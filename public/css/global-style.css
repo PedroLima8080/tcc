@@ -1,6 +1,7 @@
 body,
 html {
     background-color: white;
+    min-height: 100%;
 }
 
 .content.main-content {
@@ -8,6 +9,7 @@ html {
     margin: 0 auto !important;
     float: none !important;
     margin-top: 60px !important;
+    min-height: 100%;
 }
 
 .loader {

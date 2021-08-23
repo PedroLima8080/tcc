@@ -1,13 +1,4 @@
 .footer {
     background-color: #21b0b6;
     width: 100%;
-    margin-top: 100px;
-    margin-bottom: 10px;
-}
-
-.footer.absolute {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    position: fixed;
-    bottom: 10px;
 }
