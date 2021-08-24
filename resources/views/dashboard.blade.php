@@ -48,9 +48,9 @@
             </div>
         </form>
         <hr class="mb-5">
-        <div id="status" class="">
+        <div id="status" class="mb-5">
         </div>
-        <div class="show-books" id="teste">
+        <div class="mb-5 show-books" id="teste">
         </div>
     </div>
 </div>

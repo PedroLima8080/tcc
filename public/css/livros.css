@@ -1,14 +1,58 @@
 .livros-page {
     width: 100%;
-    min-height: 100vh;
     margin: 0 auto !important;
     float: none !important;
+}
+
+.background-image {
+    background-color: orange;
+    width: 100%;
+    height: 19em;
     background-image: url('../img/img_livros.jpg');
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-attachment: fixed;
-    padding-bottom: 25px;
+}
+
+.background-image span {
+    background-color: #21b0b6;
+    width: min-content;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    white-space: nowrap;
+    padding: 0.05em 1em;
+    border-radius: 0.1em;
+}
+
+.topics {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0 1.5em;
+}
+
+.topics .topic-item {
+    width: 175px;
+    min-width: 175px;
+}
+
+li+li {
+    margin-left: 40px !important;
+}
+
+.topics .topic-item img {
+    height: 125px;
+    border-radius: 4px;
+}
+
+.topics .topic-item h3,
+.topics .topic-item h5 {
+    font-weight: bold;
 }
 
 @media screen and (max-width: 980px) {

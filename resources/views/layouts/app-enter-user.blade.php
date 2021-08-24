@@ -22,8 +22,7 @@
         @yield('content')
     </div>
     
-    @include('components.footer-absolute')
-    
+    @include('components.footer')
 
     <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('scripts')

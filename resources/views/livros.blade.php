@@ -4,16 +4,24 @@
 
 @section('content')
 <div class="livros-page">
+    <div class="background-image d-flex flex-column">
+        <span class="mt-4">Encontre</span>
+        <span class="mt-2">seus livros favoritos</span>
+        <span class="mt-2">nas nossas bibliotecas!</span>
+        <span class="mt-2">Consulte a disponibilidade do livro</span>
+        <span class="mt-2">que precisa nas bibliotecas cadastradas</span>
+    </div>
+
     <div class="library">
-        <h1 class="mx-auto main-title">Por qual livro você está buscando?</h1>
+        <h1 class="text-center">Por qual livro você está buscando?</h1>
         <form method="POST" id="searchAdvanced" class="w-100">
-            <div class="form-row">
+            <div class="row">
                 <div class="form-group col-md-6">
-                    <label for="title" name="title" class="text-white custom-label">Título:</label>
+                    <label for="title">Título:</label>
                     <input type="text" class="form-control" id="title" name="title">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="title" name="title" class="text-white custom-label">Autor:</label>
+                    <label for="autor">Autor:</label>
                     <input type="text" class="form-control" id="autor" name="autor">
                 </div>
             </div>
@@ -21,12 +29,12 @@
                 <button class="btn-login w-20 mt-3 mb-2 mx-auto">Pesquisar</button>
             </div>
         </form>
-        <div id="status" class="mt-5">
+        <hr class="mb-5">
+        <div id="status" class="mb-5">
         </div>
-        <div class="show-books" id="teste">
+        <div class="mb-5 show-books" id="teste">
         </div>
     </div>
-    
 </div>
 @endsection
 

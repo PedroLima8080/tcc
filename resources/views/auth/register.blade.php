@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="dev">
-    <form method="POST" action="{{ route('register') }}" id="form">
+    <form method="POST" action="{{ route('register') }}" id="form" novalidate>
         @csrf
 
         <div class="d-flex justify-content-center">
@@ -10,9 +10,9 @@
                 REGISTER
             </div>
         </div>
-
+        
         <div class="form-group row">
-            <div class="col-12">
+            <div class="col-md-12">
                 <input id="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text"
                     name="name" value="{{ old('name') }}" autofocus placeholder="Nome" />
                 @if ($errors->has('name'))
@@ -74,14 +74,15 @@
             </a>
 
             <div class="d-flex justify-content-center mt-4">
-                <button class="btn btn-login ml-3 text-white">
+                <button class="btn btn-login text-white">
                     Register
                 </button>
             </div>
         </div>
 
     </form>
-    <form method="POST" action="{{ route('register') }}" id="form">
+
+    <form method="POST" action="{{ route('register') }}" id="form" class="form-enterprise">
         @csrf
 
         <div class="d-flex justify-content-center">

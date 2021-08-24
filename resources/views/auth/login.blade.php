@@ -41,16 +41,16 @@
         <!-- Remember Me -->
         <div class="block mt-2">
             <div>
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
-                        Registre-se aqui
-                    </a>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                    Registre-se aqui
+                </a>
             </div>
         </div>
 
         <div class="d-flex justify-content-center mt-4">
-            <button class="btn btn-login ml-3 text-white">
-                Login
-            </button>
+                <button class="btn btn-login text-white mx-auto">
+                    Login
+                </button>
         </div>
     </form>
 

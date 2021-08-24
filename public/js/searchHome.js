@@ -144,11 +144,11 @@ function setStatus(status) {
             divInfosEl.innerHTML = '<div class="loader mr-auto ml-auto"></div>'
             break;
         case 'nothingData':
-            divInfosEl.innerHTML = '<h1 class="text-center w-100 text-white">Nenhum resultado encontrado</h1>'
+            divInfosEl.innerHTML = '<h1 class="text-center w-100">Nenhum resultado encontrado</h1>'
             break;
 
         case 'insertTitle':
-            divInfosEl.innerHTML = '<h3 class="text-center w-100 text-white"></h3>'
+            divInfosEl.innerHTML = '<h3 class="text-center w-100"></h3>'
             break;
 
         case 'clear':

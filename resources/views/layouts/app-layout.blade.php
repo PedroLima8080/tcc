@@ -20,7 +20,7 @@
 <body>
     @include('components.header')
 
-    <div class="content main-content">
+    <div class="main-content">
         @yield('content')
     </div>
     
