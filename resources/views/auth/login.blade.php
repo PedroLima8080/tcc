@@ -1,7 +1,7 @@
 @extends('layouts.app-enter-user')
 
 @section('content')
-    <form method="POST" action="{{ route('login') }}" class="form">
+    <form method="POST" action="{{ route('login') }}" id="form">
         @csrf
 
         <div class="d-flex justify-content-center">

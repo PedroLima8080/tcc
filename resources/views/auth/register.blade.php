@@ -1,8 +1,8 @@
 @extends('layouts.app-enter-user')
 
 @section('content')
-
-    <form method="POST" action="{{ route('register') }}" class="form">
+<div class="dev">
+    <form method="POST" action="{{ route('register') }}" id="form">
         @csrf
 
         <div class="d-flex justify-content-center">
@@ -79,7 +79,31 @@
                 </button>
             </div>
         </div>
+
     </form>
+    <form method="POST" action="{{ route('register') }}" id="form">
+        @csrf
+
+        <div class="d-flex justify-content-center">
+            <div class="title-login text-center h4 px-4 py-1 text-white">
+                QUER SE CADASTRAR COMO BIBLIOTECA? 
+            </div>
+        </div>
+            <a> <br> <b> Nosso site permite que sua empresa apresente seu catálogo em nossas pesquisas.
+                Clique em "Tenho interesse" para saber como cadastrar sua empresa!</b> <br> <br> <br> </a>
+       
+            <div class="d-flex justify-content-center mt-4">
+                <button class="btn btn-login ml-3 text-white">
+
+               <b>Tenho interesse </b>
+                
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
 
 @endsection
 
