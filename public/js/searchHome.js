@@ -85,6 +85,7 @@ async function simpleWrite(title) {
                 <h4>${title}</h4>   
                 <p class="info">${info}</p>
                 <p>${ json.docs[i].pnx.display.creationdate[0]}</p> 
+                <p>Está em:<b> Campus Unesp, Bauru</b></p> 
             </div>
             </div>
         `
@@ -129,7 +130,8 @@ async function advancedWrite(fields) {
             <div class="infos">
                 <h4>${title}</h4>   
                 <p class="info">${info}</p>
-                <p>${ json.docs[i].pnx.display.creationdate[0]}</p> 
+                <p>${ json.docs[i].pnx.display.creationdate[0]}</p>
+                <p>Está em:<b> Campus Unesp, Bauru</b></p> 
             </div>
             </div>
         `
