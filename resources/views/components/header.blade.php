@@ -29,7 +29,7 @@
                         <button type="button" class="btn dropdown-toggle d-flex align-items-center "
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user-circle icon-header"></i>&nbsp;
-                            {{ Auth::user()->name }}
+                            {{ Auth::user()->nome }}
                             &nbsp;
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">

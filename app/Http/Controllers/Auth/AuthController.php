@@ -35,10 +35,18 @@ class AuthController extends Controller
     }
 
     public function registerUser(registerRequest $request){
-        $form = $request->only(['name', 'email', 'password', 'password_confirmation']);
+        $form = $request->only(['nome', 'email', 'data_nasc', 'genero', 'password', 'password_confirmation']);
         $form['password'] = md5($form['password']);
 
-        $user = User::create($form);
+
+        $user = User::create([
+            'nome' => $form['nome'],
+            'email' => $form['email'],
+            'data_nasc' => $form['data_nasc'],
+            'genero' => $form['genero'],
+            'password' => $form['password'],
+            'adm' => 0
+        ]);
 
         $login = User::where('email', $form['email'])->where('password', $form['password'])->first();
 

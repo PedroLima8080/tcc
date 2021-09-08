@@ -13,12 +13,12 @@
         
         <div class="form-group row">
             <div class="col-md-12">
-                <input id="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text"
-                    name="name" value="{{ old('name') }}" autofocus placeholder="Nome" />
-                @if ($errors->has('name'))
+                <input id="nome" class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}" type="text"
+                    name="nome" value="{{ old('nome') }}" autofocus placeholder="Nome" autocomplete="off" />
+                @if ($errors->has('nome'))
                     <div class="invalid-feedback">
                         <span>
-                            {{ $errors->first('name') }}
+                            {{ $errors->first('nome') }}
                         </span>
                     </div>
                 @endif
@@ -28,7 +28,7 @@
         <div class="form-group row">
             <div class="col-12">
                 <input id="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email"
-                    name="email" value="{{ old('email') }}" placeholder="Email" />
+                    name="email" value="{{ old('email') }}" placeholder="Email" autocomplete="off" />
                 @if ($errors->has('email'))
                     <div class="invalid-feedback">
                         <span>
@@ -41,8 +41,40 @@
 
         <div class="form-group row">
             <div class="col-12">
+                <input id="data_nasc" class="form-control {{ $errors->has('data_nasc') ? 'is-invalid' : '' }}" type="date"
+                    name="data_nasc" value="{{ old('data_nasc') }}" placeholder="Data de Nascimento" autocomplete="off" />
+                @if ($errors->has('data_nasc'))
+                    <div class="invalid-feedback">
+                        <span>
+                            {{ $errors->first('data_nasc') }}
+                        </span>
+                    </div>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-12">
+                <select name="genero" id="genero" class="form-control {{ $errors->has('genero') ? 'is-invalid' : '' }}">
+                    <option value="" selected>--Escolher Gênero--</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outro">Outro</option>
+                </select>
+                @if ($errors->has('genero'))
+                    <div class="invalid-feedback">
+                        <span>
+                            {{ $errors->first('genero') }}
+                        </span>
+                    </div>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-12">
                 <input id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                    type="password" name="password" placeholder="Senha" />
+                    type="password" name="password" placeholder="password" autocomplete="off" />
                 @if ($errors->has('password'))
                     <div class="invalid-feedback">
                         <span>
@@ -57,7 +89,7 @@
             <div class="col-12">
                 <input id="password_confirmation"
                     class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}" type="password"
-                    name="password_confirmation" placeholder="Confirmar Senha" />
+                    name="password_confirmation" placeholder="Confirmar Senha" autocomplete="off" />
                 @if ($errors->has('password_confirmation'))
                     <div class="invalid-feedback">
                         <span>

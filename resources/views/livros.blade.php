@@ -18,11 +18,11 @@
             <div class="row">
                 <div class="form-group col-md-6">
                     <label for="title">Título:</label>
-                    <input type="text" class="form-control" id="title" name="title">
+                    <input type="text" class="form-control" id="title" name="title" autocomplete="off" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="autor">Autor:</label>
-                    <input type="text" class="form-control" id="autor" name="autor">
+                    <input type="text" class="form-control" id="autor" name="autor" autocomplete="off" >
                 </div>
             </div>
             <div class="d-flex justify-content-center">

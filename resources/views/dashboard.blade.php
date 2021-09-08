@@ -41,7 +41,7 @@
         <form method="POST" id="search" class="w-100">
             <div class="form-group">
                 <label for="title" name="title">Título:</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <input type="text" class="form-control" id="title" name="title" autocomplete="off" >
             </div>
             <div class="d-flex justify-content-center">
                 <button class="btn-login w-20 mt-3 mb-2 mx-auto">Pesquisar</button>
