@@ -34,6 +34,9 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <button class="dropdown-item" type="button">Perfil</button>
+                            @if(Auth::user()->adm == 1)
+                                <a href="{{ route('libs') }}" class="dropdown-item">Ver Bibliotecas</a>
+                            @endif
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button type="submit" class="dropdown-item">Sair</button>

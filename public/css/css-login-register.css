@@ -25,6 +25,13 @@ body {
     max-width: 500px;
 }
 
+#form_library {
+    background-color: rgba(255, 255, 255, 0.782);
+    border-radius: 8px;
+    padding: 40px 40px;
+    width: 85%;
+}
+
 .form-enterprise {
     margin-left: 40px;
 }
@@ -36,6 +43,7 @@ body {
     margin-bottom: 40px;
     margin-top: 40px;
     height: 100%;
+    width: 100%;
 }
 
 .title-login {

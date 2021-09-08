@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\loginRequest;
 use App\Http\Requests\Auth\registerRequest;
+use App\Models\Library;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -56,6 +57,41 @@ class AuthController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    public function loginLibraryForm(){
+        return view('auth.library_login');
+    }
+
+    public function loginLibrary(Request $request){
+        dd($request);
+    }
+
+    public function registerLibraryForm(){
+        return view('auth.library_register');
+    }
+
+    public function registerLibrary(Request $request){
+
+        $form = $request->all();
+        $form['password'] = md5($form['password']);
+
+        $library = Library::create([
+            'nome' => $form['nome'],
+            'cnpj' => $form['cnpj'],
+            'email' => $form['email'],
+            'fone' => $form['fone'],
+            'bairro' => $form['bairro'],
+            'endereco' => $form['endereco'],
+            'numero' => $form['numero'],
+            'cidade' => $form['cidade'],
+            'password' => $form['password'],
+            'uf' => $form['uf'],
+            'cep' => $form['cep'],
+            'valida' => 0
+        ]);
+
+        return redirect()->route('loginLibrary');
     }
 
     public function logoutUser(){

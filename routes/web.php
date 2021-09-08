@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LibsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,10 @@ Route::get('/home', function(){
 Route::get('/livros', function(){
     return view('livros');
 })->middleware('auth:user');
+
+Route::get('/libs', [LibsController::class, 'sla'])
+    ->middleware('auth:user')
+    ->name('libs');
 
 Route::get('/favoritos', function(){
     return view('favoritos');

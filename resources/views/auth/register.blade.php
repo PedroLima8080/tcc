@@ -74,7 +74,7 @@
         <div class="form-group row">
             <div class="col-12">
                 <input id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                    type="password" name="password" placeholder="password" autocomplete="off" />
+                    type="password" name="password" placeholder="Senha" autocomplete="off" />
                 @if ($errors->has('password'))
                     <div class="invalid-feedback">
                         <span>
@@ -128,7 +128,7 @@
             <div class="d-flex justify-content-center mt-4">
                 <button class="btn btn-login ml-3 text-white">
 
-               <b>Tenho interesse </b>
+               <a href="{{ route('registerLibrary') }}" class="text-white">Tenho interesse </a>
                 
                 </button>
             </div>

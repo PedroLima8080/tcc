@@ -29,6 +29,20 @@ Route::get('/register', [AuthController::class, 'registerUserForm'])
 Route::post('/register', [AuthController::class, 'registerUser'])
     ->middleware('guest');
 
+Route::get('/library/login', [AuthController::class, 'loginLibraryForm'])
+    ->middleware('guest')
+    ->name('loginLibrary');
+
+Route::post('/library/login', [AuthController::class, 'loginLibrary'])
+    ->middleware('guest');
+
+Route::get('library/register', [AuthController::class, 'registerLibraryForm'])
+    ->middleware('guest')
+    ->name('registerLibrary');
+
+Route::post('library/register', [AuthController::class, 'registerLibrary'])
+    ->middleware('guest');
+
 Route::post('/logout', [AuthController::class, 'logoutUser'])
     ->middleware('auth:user')
     ->name('logout');

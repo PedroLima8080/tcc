@@ -1,7 +1,7 @@
 @extends('layouts.app-enter-user')
 
 @section('content')
-    <form method="POST" action="{{ route('login') }}" id="form">
+    <form method="POST" action="{{ route('loginLibrary') }}" id="form">
         @csrf
 
         <div class="d-flex justify-content-center">
@@ -12,12 +12,12 @@
 
         <div class="form-group row">
             <div class="col-12">
-                <input id="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email"
-                    name="email" value="{{ old('email') }}" autofocus placeholder="Email" autocomplete="off" />
-                @if ($errors->has('email'))
+                <input id="cnpj" class="form-control {{ $errors->has('cnpj') ? 'is-invalid' : '' }}" type="text"
+                    name="cnpj" value="{{ old('cnpj') }}" autofocus placeholder="CNPJ..." autocomplete="off" />
+                @if ($errors->has('cnpj'))
                     <div class="invalid-feedback">
                         <span>
-                            {{ $errors->first('email') }}
+                            {{ $errors->first('cnpj') }}
                         </span>
                     </div>
                 @endif
@@ -27,7 +27,7 @@
         <div class="form-group row">
             <div class="col-12">
                 <input id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                    type="password" name="password" autocomplete="off" placeholder="senha" />
+                    type="password" name="password" autocomplete="off" placeholder="Senha" />
                 @if ($errors->has('password'))
                     <div class="invalid-feedback">
                         <span>
@@ -41,8 +41,12 @@
         <!-- Remember Me -->
         <div class="block mt-2">
             <div>
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('registerLibrary') }}">
                     Registre-se aqui
+                </a>
+                <br>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                    Logar-se como Usuário
                 </a>
             </div>
         </div>
