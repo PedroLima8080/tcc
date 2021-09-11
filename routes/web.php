@@ -1,5 +1,6 @@
 <?php
 
+use App\Helper\Helper;
 use App\Http\Controllers\LibsController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,8 @@ Route::get('/', function () {
 })->middleware('auth:user');
 
 Route::get('/home', function(){
-    return view('dashboard');
+    $msg = Helper::getCustomMsg();
+    return view('dashboard', ['msg' => $msg]);
 })->middleware('auth:user');
 
 Route::get('/livros', function(){

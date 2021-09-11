@@ -19,12 +19,22 @@
 </head>
 <body>
     <div class="content">
+        <div class="custom-msg top" id="custom-msg">
+        </div>
         @yield('content')
     </div>
     
     @include('components.footer')
 
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/global-script.js') }}" ></script>
+    @isset($msg)
+        @if ($msg != null)
+            <script>
+                customMsg('{{ $msg[1] }}', '{{ $msg[0] }}')
+            </script>
+        @endif
+    @endisset
     @stack('scripts')
 </body>
 </html>

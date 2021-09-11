@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Helper\Helper;
 use App\Http\Requests\Auth\loginRequest;
+use App\Http\Requests\Auth\registerLibraryRequest;
 use App\Http\Requests\Auth\registerRequest;
 use App\Models\Library;
 use Illuminate\Http\Request;
@@ -14,7 +16,8 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     public function loginUserForm(){
-        return view('auth.login');
+        $msg = Helper::getCustomMsg();
+        return view('auth.login', ['msg' => $msg]);
     }
 
     public function loginUser(loginRequest $request){
@@ -25,14 +28,17 @@ class AuthController extends Controller
 
         if($login){
             Auth::guard('user')->loginUsingId($login->id);
+            Helper::setCustomMsg(['msg-success', 'Login realizado com sucesso!']);
             return redirect('/home');
         }else{
+            Helper::setCustomMsg(['msg-danger', 'Email ou senha incorretos!']);
             return redirect()->back();
         }
     }
 
     public function registerUserForm(){
-        return view('auth.register');
+        $msg = Helper::getCustomMsg();
+        return view('auth.register', ['msg' => $msg]);
     }
 
     public function registerUser(registerRequest $request){
@@ -53,14 +59,17 @@ class AuthController extends Controller
 
         if($login){
             Auth::guard('user')->loginUsingId($login->id);
+            Helper::setCustomMsg(['msg-success', 'Cadastro realizado com sucesso!']);
             return redirect('/home');
         }
 
+        Helper::setCustomMsg(['msg-danger', 'Falha ao realizar cadastro!']);
         return redirect()->back();
     }
 
     public function loginLibraryForm(){
-        return view('auth.library_login');
+        $msg = Helper::getCustomMsg();
+        return view('auth.library_login', ['msg' => $msg]);
     }
 
     public function loginLibrary(Request $request){
@@ -68,10 +77,11 @@ class AuthController extends Controller
     }
 
     public function registerLibraryForm(){
-        return view('auth.library_register');
+        $msg = Helper::getCustomMsg();
+        return view('auth.library_register', ['msg' => $msg]);
     }
 
-    public function registerLibrary(Request $request){
+    public function registerLibrary(registerLibraryRequest $request){
 
         $form = $request->all();
         $form['password'] = md5($form['password']);
@@ -91,11 +101,13 @@ class AuthController extends Controller
             'valida' => 0
         ]);
 
+        Helper::setCustomMsg(['msg-success', 'Cadastro realizado com sucesso!']);
         return redirect()->route('loginLibrary');
     }
 
     public function logoutUser(){
         Auth::logout();
+        Helper::setCustomMsg(['msg-success', 'Logout realizado sucesso!']);
         return redirect('/login');
     }
 }

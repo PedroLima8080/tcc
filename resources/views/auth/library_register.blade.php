@@ -192,3 +192,16 @@
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/css-login-register.css') }}">
 @endpush
+
+@push('scripts')
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function($) {
+            $('#cnpj').mask('00.000.000/0000-00').attr('maxlength', 18)
+            $('#cep').mask('00000-000').attr('maxlength', 9)
+            $('#fone').mask('(00) 00000-0000').attr('maxlength', 15)
+        })
+    </script>
+@endpush

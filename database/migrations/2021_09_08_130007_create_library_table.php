@@ -15,7 +15,7 @@ class CreateLibraryTable extends Migration
     {
         Schema::create('library', function (Blueprint $table) {
             $table->id();
-            $table->string('cnpj', 14)->unique();
+            $table->string('cnpj', 18)->unique();
             $table->string('nome', 100);
             $table->string('endereco', 100);
             $table->string('numero', 10);
