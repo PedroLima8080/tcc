@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Helper\Helper;
+use App\Http\Requests\Auth\LoginLibraryRequest;
 use App\Http\Requests\Auth\loginRequest;
 use App\Http\Requests\Auth\registerLibraryRequest;
 use App\Http\Requests\Auth\registerRequest;
@@ -72,8 +73,19 @@ class AuthController extends Controller
         return view('auth.library_login', ['msg' => $msg]);
     }
 
-    public function loginLibrary(Request $request){
-        dd($request);
+    public function loginLibrary(LoginLibraryRequest $request){
+        $data = $request->only(['cnpj', 'password']);
+
+        $library = Library::where('cnpj', $data['cnpj'])->where('password', md5($data['password']))->where('valida', 1)->first();
+
+        if($library){
+            Auth::guard('library')->loginUsingId($library->id);
+            Helper::setCustomMsg(['msg-success', 'Logado com sucesso!']);
+            return redirect('/home');
+        }
+        
+        Helper::setCustomMsg(['msg-danger', 'Falha ao fazer login!']);
+        return redirect()->route('loginLibrary');
     }
 
     public function registerLibraryForm(){

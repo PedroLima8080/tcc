@@ -88,7 +88,7 @@ return [
 
         'library' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Library::class,
+            'model' => App\Models\Library::class
         ]
 
         // 'users' => [

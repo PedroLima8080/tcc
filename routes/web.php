@@ -17,23 +17,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect('/home');
-})->middleware('auth:user');
+})->middleware('auth:user,library');
 
 Route::get('/home', function(){
     $msg = Helper::getCustomMsg();
     return view('dashboard', ['msg' => $msg]);
-})->middleware('auth:user');
+})->middleware('auth:user,library');
 
 Route::get('/livros', function(){
     return view('livros');
-})->middleware('auth:user');
+})->middleware('auth:user,library');
 
 Route::get('/libs', [LibsController::class, 'sla'])
-    ->middleware('auth:user')
+    ->middleware('auth:user,library')
     ->name('libs');
 
 Route::get('/favoritos', function(){
     return view('favoritos');
-})->middleware('auth:user');
+})->middleware('auth:user,library');
 
 
