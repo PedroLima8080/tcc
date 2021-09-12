@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <div class="form-group row">
+        {{-- <div class="form-group row">
             <div class="col-12">
                 <input id="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email"
                     name="email" value="{{ old('email') }}" autofocus placeholder="Email" autocomplete="off" />
@@ -22,14 +22,34 @@
                     </div>
                 @endif
             </div>
+        </div> --}}
+
+        <div class="form-group row">
+            <div class="col-12">
+                <div class="tcc-form-control {{ $errors->has('email') ? 'tcc-is-invalid' : '' }}">
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="email">Email</label>
+                </div>
+                @if ($errors->has('email'))
+                    <div class="tcc-invalid-feedback">
+                        <span>
+                            {{ $errors->first('email') }}
+                        </span>
+                    </div>
+                @endif
+            </div>
         </div>
 
         <div class="form-group row">
             <div class="col-12">
-                <input id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                    type="password" name="password" autocomplete="off" placeholder="senha" />
+                <div class="tcc-form-control {{ $errors->has('password') ? 'tcc-is-invalid' : '' }}">
+                    <input id="password" type="password" name="password" value="{{ old('password') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="password">Senha</label>
+                </div>
                 @if ($errors->has('password'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('password') }}
                         </span>
@@ -48,9 +68,9 @@
         </div>
 
         <div class="d-flex justify-content-center mt-4">
-                <button class="btn btn-login text-white mx-auto">
-                    Login
-                </button>
+            <button class="btn btn-login text-white mx-auto">
+                Login
+            </button>
         </div>
     </form>
 

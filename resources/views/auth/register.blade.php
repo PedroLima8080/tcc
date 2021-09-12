@@ -12,11 +12,14 @@
         </div>
         
         <div class="form-group row">
-            <div class="col-md-12">
-                <input id="nome" class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}" type="text"
-                    name="nome" value="{{ old('nome') }}" autofocus placeholder="Nome" autocomplete="off" />
+            <div class="col-12">
+                <div class="tcc-form-control {{ $errors->has('nome') ? 'tcc-is-invalid' : '' }}">
+                    <input id="nome" type="text" name="nome" value="{{ old('nome') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="nome">Nome</label>
+                </div>
                 @if ($errors->has('nome'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('nome') }}
                         </span>
@@ -27,10 +30,13 @@
 
         <div class="form-group row">
             <div class="col-12">
-                <input id="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email"
-                    name="email" value="{{ old('email') }}" placeholder="Email" autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('email') ? 'tcc-is-invalid' : '' }}">
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="email">Email</label>
+                </div>
                 @if ($errors->has('email'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('email') }}
                         </span>
@@ -41,10 +47,13 @@
 
         <div class="form-group row">
             <div class="col-12">
-                <input id="data_nasc" class="form-control {{ $errors->has('data_nasc') ? 'is-invalid' : '' }}" type="date"
-                    name="data_nasc" value="{{ old('data_nasc') }}" placeholder="Data de Nascimento" autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('data_nasc') ? 'tcc-is-invalid' : '' }}">
+                    <input id="data_nasc" type="date" name="data_nasc" value="{{ old('data_nasc') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="data_nasc">Data de Nascimento</label>
+                </div>
                 @if ($errors->has('data_nasc'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('data_nasc') }}
                         </span>
@@ -55,14 +64,16 @@
 
         <div class="form-group row">
             <div class="col-12">
-                <select name="genero" id="genero" class="form-control {{ $errors->has('genero') ? 'is-invalid' : '' }}">
-                    <option value="" selected>--Escolher Gênero--</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="feminino">Feminino</option>
-                    <option value="outro">Outro</option>
-                </select>
+                <div class="tcc-form-control {{ $errors->has('genero') ? 'tcc-is-invalid' : '' }}">
+                    <select name="genero" id="genero" class="form-control {{ $errors->has('genero') ? 'is-invalid' : '' }}">
+                        <option value="" selected>--Escolher Gênero--</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
                 @if ($errors->has('genero'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('genero') }}
                         </span>
@@ -73,10 +84,13 @@
 
         <div class="form-group row">
             <div class="col-12">
-                <input id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                    type="password" name="password" placeholder="Senha" autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('password') ? 'tcc-is-invalid' : '' }}">
+                    <input id="password" type="password" name="password" value="{{ old('password') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="password">Senha</label>
+                </div>
                 @if ($errors->has('password'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('password') }}
                         </span>
@@ -87,11 +101,13 @@
 
         <div class="form-group row">
             <div class="col-12">
-                <input id="password_confirmation"
-                    class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}" type="password"
-                    name="password_confirmation" placeholder="Confirmar Senha" autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('password_confirmation') ? 'tcc-is-invalid' : '' }}">
+                    <input id="password_confirmation" type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="password_confirmation">Confirmar Senha</label>
+                </div>
                 @if ($errors->has('password_confirmation'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('password_confirmation') }}
                         </span>

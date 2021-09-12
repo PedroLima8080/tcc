@@ -11,11 +11,14 @@
         </div>
         
         <div class="form-group row">
-            <div class="col-md-12">
-                <input id="nome" class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}" type="text"
-                    name="nome" value="{{ old('nome') }}" autofocus placeholder="Nome" autocomplete="off" />
+            <div class="col-12">
+                <div class="tcc-form-control {{ $errors->has('nome') ? 'tcc-is-invalid' : '' }}">
+                    <input id="nome" type="text" name="nome" value="{{ old('nome') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="nome">Nome</label>
+                </div>
                 @if ($errors->has('nome'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('nome') }}
                         </span>
@@ -26,10 +29,13 @@
 
         <div class="form-group row">
             <div class="col-12">
-                <input id="cnpj" class="form-control {{ $errors->has('cnpj') ? 'is-invalid' : '' }}" type="text"
-                    name="cnpj" value="{{ old('cnpj') }}" placeholder="CNPJ" autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('cnpj') ? 'tcc-is-invalid' : '' }}">
+                    <input id="cnpj" type="text" name="cnpj" value="{{ old('cnpj') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="cnpj">CNPJ</label>
+                </div>
                 @if ($errors->has('cnpj'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('cnpj') }}
                         </span>
@@ -40,10 +46,13 @@
 
         <div class="form-group row">
             <div class="col-4">
-                <input id="cep" class="form-control {{ $errors->has('cep') ? 'is-invalid' : '' }}" type="text"
-                    name="cep" value="{{ old('cep') }}" placeholder="CEP..." autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('cep') ? 'tcc-is-invalid' : '' }}">
+                    <input id="cep" type="text" name="cep" value="{{ old('cep') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="cep">CEP</label>
+                </div>
                 @if ($errors->has('cep'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('cep') }}
                         </span>
@@ -52,10 +61,13 @@
             </div>
 
             <div class="col-4">
-                <input id="cidade" class="form-control {{ $errors->has('cidade') ? 'is-invalid' : '' }}" type="text"
-                    name="cidade" value="{{ old('cidade') }}" placeholder="cidade..." autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('cidade') ? 'tcc-is-invalid' : '' }}">
+                    <input id="cidade" type="text" name="cidade" value="{{ old('cidade') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="cidade">Cidade</label>
+                </div>
                 @if ($errors->has('cidade'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('cidade') }}
                         </span>
@@ -64,10 +76,13 @@
             </div>
 
             <div class="col-4">
-                <input id="uf" class="form-control {{ $errors->has('uf') ? 'is-invalid' : '' }}" type="text"
-                    name="uf" value="{{ old('uf') }}" placeholder="UF" autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('uf') ? 'tcc-is-invalid' : '' }}">
+                    <input id="uf" type="text" name="uf" value="{{ old('uf') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="uf">UF</label>
+                </div>
                 @if ($errors->has('uf'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('uf') }}
                         </span>
@@ -78,10 +93,13 @@
 
         <div class="form-group row">
             <div class="col-4">
-                <input id="bairro" class="form-control {{ $errors->has('bairro') ? 'is-invalid' : '' }}" type="text"
-                    name="bairro" value="{{ old('bairro') }}" placeholder="bairro..." autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('bairro') ? 'tcc-is-invalid' : '' }}">
+                    <input id="bairro" type="text" name="bairro" value="{{ old('bairro') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="bairro">Bairro</label>
+                </div>
                 @if ($errors->has('bairro'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('bairro') }}
                         </span>
@@ -90,10 +108,13 @@
             </div>
 
             <div class="col-4">
-                <input id="endereco" class="form-control {{ $errors->has('endereco') ? 'is-invalid' : '' }}" type="text"
-                    name="endereco" value="{{ old('endereco') }}" placeholder="Endereço..." autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('endereco') ? 'tcc-is-invalid' : '' }}">
+                    <input id="endereco" type="text" name="endereco" value="{{ old('endereco') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="endereco">Endereço</label>
+                </div>
                 @if ($errors->has('endereco'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('endereco') }}
                         </span>
@@ -102,10 +123,13 @@
             </div>
 
             <div class="col-4">
-                <input id="numero" class="form-control {{ $errors->has('numero') ? 'is-invalid' : '' }}" type="text"
-                    name="numero" value="{{ old('numero') }}" placeholder="Número..." autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('numero') ? 'tcc-is-invalid' : '' }}">
+                    <input id="numero" type="text" name="numero" value="{{ old('numero') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="numero">Número</label>
+                </div>
                 @if ($errors->has('numero'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('numero') }}
                         </span>
@@ -116,10 +140,13 @@
 
         <div class="form-group row">
             <div class="col-6">
-                <input id="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email"
-                    name="email" value="{{ old('email') }}" placeholder="Email..." autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('email') ? 'tcc-is-invalid' : '' }}">
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="email">Email</label>
+                </div>
                 @if ($errors->has('email'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('email') }}
                         </span>
@@ -127,10 +154,13 @@
                 @endif
             </div>
             <div class="col-6">
-                <input id="fone" class="form-control {{ $errors->has('fone') ? 'is-invalid' : '' }}" type="text"
-                    name="fone" value="{{ old('fone') }}" placeholder="Telefone..." autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('fone') ? 'tcc-is-invalid' : '' }}">
+                    <input id="fone" type="text" name="fone" value="{{ old('fone') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="fone">Telefone</label>
+                </div>
                 @if ($errors->has('fone'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('fone') }}
                         </span>
@@ -141,10 +171,13 @@
         
         <div class="form-group row">
             <div class="col-12">
-                <input id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                    type="password" name="password" placeholder="password" autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('password') ? 'tcc-is-invalid' : '' }}">
+                    <input id="password" type="password" name="password" value="{{ old('password') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="password">Senha</label>
+                </div>
                 @if ($errors->has('password'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('password') }}
                         </span>
@@ -155,11 +188,13 @@
 
         <div class="form-group row">
             <div class="col-12">
-                <input id="password_confirmation"
-                    class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}" type="password"
-                    name="password_confirmation" placeholder="Confirmar Senha" autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('password_confirmation') ? 'tcc-is-invalid' : '' }}">
+                    <input id="password_confirmation" type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="password_confirmation">Senha</label>
+                </div>
                 @if ($errors->has('password_confirmation'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('password_confirmation') }}
                         </span>

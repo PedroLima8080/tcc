@@ -12,10 +12,13 @@
 
         <div class="form-group row">
             <div class="col-12">
-                <input id="cnpj" class="form-control {{ $errors->has('cnpj') ? 'is-invalid' : '' }}" type="text"
-                    name="cnpj" value="{{ old('cnpj') }}" autofocus placeholder="CNPJ..." autocomplete="off" />
+                <div class="tcc-form-control {{ $errors->has('cnpj') ? 'tcc-is-invalid' : '' }}">
+                    <input id="cnpj" type="text" name="cnpj" value="{{ old('cnpj') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="cnpj">CNPJ</label>
+                </div>
                 @if ($errors->has('cnpj'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('cnpj') }}
                         </span>
@@ -26,10 +29,13 @@
 
         <div class="form-group row">
             <div class="col-12">
-                <input id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                    type="password" name="password" autocomplete="off" placeholder="Senha" />
+                <div class="tcc-form-control {{ $errors->has('password') ? 'tcc-is-invalid' : '' }}">
+                    <input id="password" type="password" name="password" value="{{ old('password') }}" autocomplete="off"
+                        placeholder=" ">
+                    <label for="password">Senha</label>
+                </div>
                 @if ($errors->has('password'))
-                    <div class="invalid-feedback">
+                    <div class="tcc-invalid-feedback">
                         <span>
                             {{ $errors->first('password') }}
                         </span>
@@ -62,4 +68,15 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/css-login-register.css') }}">
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function($) {
+            $('#cnpj').mask('00.000.000/0000-00').attr('maxlength', 18)
+        })
+    </script>
 @endpush

@@ -18,7 +18,7 @@ body {
 }
 
 #form {
-    background-color: rgba(255, 255, 255, 0.782);
+    background-color: rgb(255, 255, 255);
     border-radius: 8px;
     padding: 40px 40px;
     width: 85%;
@@ -26,7 +26,7 @@ body {
 }
 
 #form_library {
-    background-color: rgba(255, 255, 255, 0.782);
+    background-color: rgb(255, 255, 255);
     border-radius: 8px;
     padding: 40px 40px;
     width: 85%;
