@@ -130,7 +130,7 @@
 
     </form>
 
-    <form method="POST" action="{{ route('register') }}" id="form" class="form-enterprise">
+    <form method="POST" action="{{ route('register') }}" id="form_library" class="form-enterprise">
         @csrf
 
         <div class="d-flex justify-content-center">

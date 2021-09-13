@@ -6,14 +6,14 @@
 
         <div class="d-flex justify-content-center">
             <div class="title-login text-center h2 px-4 py-1 text-white">
-                LOGIN
+                LOGIN COMO BIBLIOTECA
             </div>
         </div>
 
         <div class="form-group row">
             <div class="col-12">
                 <div class="tcc-form-control {{ $errors->has('cnpj') ? 'tcc-is-invalid' : '' }}">
-                    <input id="cnpj" type="text" name="cnpj" value="{{ old('cnpj') }}" autocomplete="off"
+                    <input id="cnpj" type="text" name="cnpj" value="{{ old('cnpj') }}"
                         placeholder=" ">
                     <label for="cnpj">CNPJ</label>
                 </div>
@@ -30,7 +30,7 @@
         <div class="form-group row">
             <div class="col-12">
                 <div class="tcc-form-control {{ $errors->has('password') ? 'tcc-is-invalid' : '' }}">
-                    <input id="password" type="password" name="password" value="{{ old('password') }}" autocomplete="off"
+                    <input id="password" type="password" name="password" value="{{ old('password') }}"
                         placeholder=" ">
                     <label for="password">Senha</label>
                 </div>
