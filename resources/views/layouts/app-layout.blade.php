@@ -22,7 +22,6 @@
 
 <body>
     @include('components.header')
-
     <div class="main-content">
         <div class="custom-msg" id="custom-msg">
         </div>

@@ -17,24 +17,28 @@
             <li class="nav-item {{ Request::path() === 'favoritos' ? 'route-active' : '' }}">
                 <a class="h4 route" href="favoritos">FAVORITOS</a>
             </li>
-            @if (!Auth::check())
+            @if (!Auth::guard('user')->check() && !Auth::guard('library')->check())
                 <li
                     class="nav-item {{ Request::path() === 'login' ? 'route-active' : (Request::path() === 'register' ? 'route-active' : '') }}">
                     <a class="h4 route" href="#">CADASTRO</a>
                 </li>
             @endif
-            @if (Auth::check())
+            @if (Auth::guard('user')->check() || Auth::guard('library')->check())
                 <div class="dropdown">
                     <div class="btn-group">
                         <button type="button" class="btn dropdown-toggle d-flex align-items-center "
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user-circle icon-header"></i>&nbsp;
-                            {{ Auth::user()->nome }}
+                            @if (Auth::guard('user')->check())
+                                {{ Auth::guard('user')->user()->nome }}
+                            @elseif(Auth::guard('library')->check())
+                                {{ Auth::guard('library')->user()->nome }}
+                            @endif
                             &nbsp;
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Perfil</button>
-                            @if(Auth::user()->adm == 1)
+                            <a class="dropdown-item" href="{{ route('profile') }}">Perfil</a>
+                            @if (Auth::guard('user')->check() && Auth::guard('user')->user()->adm == 1)
                                 <a href="{{ route('libs') }}" class="dropdown-item">Ver Bibliotecas</a>
                             @endif
                             <form action="{{ route('logout') }}" method="POST">

@@ -2,6 +2,7 @@
 
 use App\Helper\Helper;
 use App\Http\Controllers\LibsController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,4 +37,9 @@ Route::get('/favoritos', function(){
     return view('favoritos');
 })->middleware('auth:user,library');
 
+Route::get('/perfil', [ProfileController::class, 'profile'])
+    ->name('profile')
+    ->middleware('auth:user,library');
 
+Route::post('/perfil', [ProfileController::class, 'store'])
+    ->middleware('auth:user,library');
