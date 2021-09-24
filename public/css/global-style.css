@@ -72,7 +72,6 @@ html {
     width: 100%;
     border-radius: 4px;
     position: relative;
-    height: 100%;
 }
 
 .tcc-form-control input,
@@ -137,9 +136,4 @@ input:-webkit-autofill:active {
     }
 }
 
-@media screen and (max-width: 850px) {
-    .col-md-4+.col-md-4,
-    .col-md-6+.col-md-6 {
-        margin-top: 20px;
-    }
-}
+@media screen and (max-width: 850px) {}

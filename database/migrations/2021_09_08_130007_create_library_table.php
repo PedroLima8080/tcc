@@ -24,7 +24,7 @@ class CreateLibraryTable extends Migration
             $table->string('uf', 2);
             $table->string('cep', 9);
             $table->string('fone', 15);
-            $table->string('email', 150)->unique();
+            $table->string('email', 175)->unique();
             $table->integer('valida')->comment('0/1');
             $table->string('password', 128);
             $table->timestamps();

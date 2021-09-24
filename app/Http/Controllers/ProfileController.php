@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProfile;
 use App\Models\Library;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,13 +19,14 @@ class ProfileController extends Controller
         return view('perfil', ['perfil' => $perfil]);
     }
 
-    public function store(Request $request){
-        $data = $request->only('nome', 'data_nasc', 'genero');
-
+    public function store(UpdateProfile $request){
+        
         if(Auth::guard('user')->check()){
+            $data = $request->only('nome', 'data_nasc', 'genero');
             $perfil = User::where('id', Auth::guard('user')->user()->id)->first()->update($data);
             
         }else{
+            $data = $request->only('nome', 'data_nasc', 'genero', 'fone', 'cep', 'endereco', 'cidade', 'uf', 'numero', 'bairro');
             $perfil = Library::where('id', Auth::guard('library')->user()->id)->first()->update($data);
         }
 

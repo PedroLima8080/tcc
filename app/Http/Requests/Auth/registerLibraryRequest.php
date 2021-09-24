@@ -32,9 +32,9 @@ class registerLibraryRequest extends FormRequest
             'bairro' => 'required|max:100',
             'endereco' => 'required|max:100',
             'numero' => 'required|max:10',
-            'email' => 'required|max:100|email',
+            'email' => 'required|max:175|email|unique:library',
             'fone' => 'required|max:15', //(14) 99904-0647
-            'password' => 'required|confirmed',
+            'password' => 'required|confirmed|max:128|min:8',
         ];
     }
 }
