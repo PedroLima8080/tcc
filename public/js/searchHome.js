@@ -53,7 +53,6 @@ async function simpleWrite(title) {
     setStatus('loading')
 
     let json = await simpleRequest(title)
-        //console.log(json)
 
     setStatus('clear')
 
@@ -77,6 +76,14 @@ async function simpleWrite(title) {
             })
         }
 
+        let locations = "";
+
+        json.docs[i].delivery.holding.forEach((location, index) => {
+            locations += `${location.mainLocation}`;
+            locations += (index + 1) < json.docs[i].delivery.holding.length ? ',<br>' : ''
+                //,<br>
+        })
+
 
         divEl.innerHTML += `
         <div class="book">
@@ -85,7 +92,8 @@ async function simpleWrite(title) {
                 <h4>${title}</h4>   
                 <p class="info">${info}</p>
                 <p>${ json.docs[i].pnx.display.creationdate[0]}</p> 
-                <p>Está em:<b> Campus Unesp, Bauru</b></p> 
+                Está em:
+                <div><b>${locations}<b><div> 
             </div>
             </div>
         `
@@ -111,6 +119,13 @@ async function advancedWrite(fields) {
         let title = json.docs[i].pnx.sort.title[0].split('/')[0]
         let info = []
         let creators = []
+        let locations = "";
+
+        json.docs[i].delivery.holding.forEach((location, index) => {
+            locations += `${location.mainLocation}`;
+            locations += (index + 1) < json.docs[i].delivery.holding.length ? ',<br>' : ''
+                //,<br>
+        })
 
         if (json.docs[i].pnx.sort.author) {
             json.docs[i].pnx.sort.author.forEach(author => {
@@ -131,7 +146,8 @@ async function advancedWrite(fields) {
                 <h4>${title}</h4>   
                 <p class="info">${info}</p>
                 <p>${ json.docs[i].pnx.display.creationdate[0]}</p>
-                <p>Está em:<b> Campus Unesp, Bauru</b></p> 
+                Está em:
+                <div><b>${locations}<b><div> 
             </div>
             </div>
         `

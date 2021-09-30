@@ -40,6 +40,10 @@ Route::get('/favoritos', function(){
 Route::get('/perfil', [ProfileController::class, 'profile'])
     ->name('profile')
     ->middleware('auth:user,library');
+    
+    Route::get('/editar-perfil', [ProfileController::class, 'updateProfile'])
+    ->name('edit-profile')
+    ->middleware('auth:user,library');
 
 Route::post('/perfil', [ProfileController::class, 'store'])
     ->middleware('auth:user,library');

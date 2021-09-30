@@ -5,10 +5,16 @@ html {
     height: 100%;
 }
 
+:root {
+    --main-color: #21b0b6;
+    --main-dark-color: #1b888c;
+}
+
 .main-content {
     width: 100%;
     padding-top: 60px;
     min-height: 100%;
+    background-color: rgb(255, 255, 255);
 }
 
 .loader {

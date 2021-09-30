@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
+
     public function profile(){
         if(Auth::guard('user')->check()){
             $perfil = User::where('id', Auth::guard('user')->user()->id)->first();
@@ -17,6 +18,15 @@ class ProfileController extends Controller
             $perfil = Library::where('id', Auth::guard('library')->user()->id)->first();
         }
         return view('perfil', ['perfil' => $perfil]);
+    }
+
+    public function updateProfile(){
+        if(Auth::guard('user')->check()){
+            $perfil = User::where('id', Auth::guard('user')->user()->id)->first();
+        }else{
+            $perfil = Library::where('id', Auth::guard('library')->user()->id)->first();
+        }
+        return view('editar-perfil', ['perfil' => $perfil]);
     }
 
     public function store(UpdateProfile $request){
