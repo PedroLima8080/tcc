@@ -14,7 +14,7 @@ async function simpleRequest(title) {
     return await json
 }
 
-async function advancedRequest(fields) {
+async function advancedRequest(fields, page = 0) {
     let resultFields = {}
 
     fields.title ? resultFields.title = fields.title : null;
@@ -33,7 +33,7 @@ async function advancedRequest(fields) {
     if (query === "")
         query = "title,contains,"
 
-    let data = await fetch(`https://api-na.hosted.exlibrisgroup.com/primo/v1/search?vid=55UNESP_INST:UNESP&scope=BBA&tab=LIBS&q=${query}&mode=advanced`, {
+    let data = await fetch(`https://api-na.hosted.exlibrisgroup.com/primo/v1/search?vid=55UNESP_INST:UNESP&scope=BBA&tab=LIBS&q=${query}&mode=advanced&offset=${page}`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -100,14 +100,52 @@ async function simpleWrite(title) {
     }
 }
 
-async function advancedWrite(fields) {
+function renderButtonPages(pages, currentPage) {
+    let contPages = document.getElementById('pages')
+
+    contPages.innerHTML = ""
+
+    for (let index = 1; index <= pages; index++) {
+        if (index > currentPage - 3 && index < currentPage + 5) {
+
+            let btn = document.createElement('button')
+            btn.classList.add('mr-1')
+            btn.classList.add('ml-1')
+            btn.classList.add('btn-login')
+            btn.innerHTML = index
+            btn.addEventListener('click', function() {
+                let title = document.getElementById('title').value
+                let author = document.getElementById('autor').value
+                let data = {
+                    title: title.length > 0 ? title : null,
+                    creator: author.length > 0 ? author : null,
+                }
+                contPages.innerHTML = ""
+                window.location.href = "#topo";
+                advancedWrite(data, index - 1)
+            })
+
+
+            contPages.appendChild(btn)
+        }
+    }
+
+    for (var i = 0; i < contPages.children.length; i++) {
+        if (contPages.children[i].tagName == "button") contPages.children[i].classList.remove('active')
+        if (contPages.children[i].innerHTML == currentPage + 1) contPages.children[i].classList.add('active')
+    }
+}
+
+async function advancedWrite(fields, currentPage = 0) {
     let divEl = document.getElementById('teste')
     divEl.innerHTML = ''
 
     setStatus('loading')
+    let page = currentPage > 0 ? currentPage * 10 : currentPage
+    let json = await advancedRequest(fields, page)
+    let pages = Math.ceil(json.info.total / 10);
 
-    let json = await advancedRequest(fields)
-    console.log(json)
+    renderButtonPages(pages, currentPage)
 
     setStatus('clear')
 
@@ -204,8 +242,6 @@ function setEvents() {
             let data = {
                 title: title.length > 0 ? title : null,
                 creator: author.length > 0 ? author : null,
-                //title: title.length > 0 ? title : null,
-                //title: title.length > 0 ? title : null,
             }
 
             advancedWrite(data)

@@ -34,6 +34,10 @@ html {
     transition: background 300ms linear;
 }
 
+.btn-login.active {
+    background-color: #157a7e;
+}
+
 .btn-login:hover {
     background-color: #157a7e;
 }

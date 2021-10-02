@@ -3,6 +3,7 @@
 @section('title', 'Livros')
 
 @section('content')
+<a name="topo"></a>
 <div class="livros-page">
     <div class="background-image d-flex flex-column">
         <span class="mt-4">Encontre</span>
@@ -34,6 +35,9 @@
         </div>
         <div class="mb-5 show-books" id="teste">
         </div>
+        <div id="pages" class="d-flex justify-content-center mb-5">
+
+        </div>
     </div>
 </div>
 @endsection
@@ -43,5 +47,6 @@
 <link rel="stylesheet" href="{{ asset('css/main-library.css') }}">
 @endpush
 @push('scripts')
+<script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/searchHome.js') }}"></script>
 @endpush
