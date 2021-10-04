@@ -143,6 +143,7 @@ async function advancedWrite(fields, currentPage = 0) {
     setStatus('loading')
     let page = currentPage > 0 ? currentPage * 10 : currentPage
     let json = await advancedRequest(fields, page)
+    console.log(json)
     let pages = Math.ceil(json.info.total / 10);
 
     renderButtonPages(pages, currentPage)
@@ -158,6 +159,7 @@ async function advancedWrite(fields, currentPage = 0) {
         let info = []
         let creators = []
         let locations = "";
+        let isbn = json.docs[i].pnx.control.recordid[0]
 
         json.docs[i].delivery.holding.forEach((location, index) => {
             locations += `${location.mainLocation}`;
@@ -181,7 +183,10 @@ async function advancedWrite(fields, currentPage = 0) {
         <div class="book">
             <img src="${asset}/img/open-book.png" class="mr-3 ml-3 p-4">
             <div class="infos">
-                <h4>${title}</h4>   
+                <div class="d-flex align-items-center">
+                    <h4 class="mr-2">${title}</h4>
+                    <i class="far fa-bookmark mr-3 ml-auto h4" onclick='alert("${isbn}")' ></i>
+                </div>
                 <p class="info">${info}</p>
                 <p>${ json.docs[i].pnx.display.creationdate[0]}</p>
                 Está em:
