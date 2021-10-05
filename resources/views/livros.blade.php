@@ -26,6 +26,16 @@
                     <input type="text" class="form-control" id="autor" name="autor" autocomplete="off" >
                 </div>
             </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="assunto">Assunto:</label>
+                    <input type="text" class="form-control" id="assunto" name="assunto" autocomplete="off" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="isbn">ISBN:</label>
+                    <input type="text" class="form-control" id="isbn" name="isbn" autocomplete="off" >
+                </div>
+            </div>
             <div class="d-flex justify-content-center">
                 <button class="btn-login w-20 mt-3 mb-2 mx-auto">Pesquisar</button>
             </div>

@@ -19,6 +19,8 @@ async function advancedRequest(fields, page = 0) {
 
     fields.title ? resultFields.title = fields.title : null;
     fields.creator ? resultFields.creator = fields.creator : null;
+    fields.sub ? resultFields.sub = fields.sub : null;
+    fields.isbn ? resultFields.isbn = fields.isbn : null;
 
     let query = "";
     let count = 0
@@ -116,9 +118,13 @@ function renderButtonPages(pages, currentPage) {
             btn.addEventListener('click', function() {
                 let title = document.getElementById('title').value
                 let author = document.getElementById('autor').value
+                let sub = document.getElementById('assunto').value
+                let isbn = document.getElementById('isbn').value
                 let data = {
                     title: title.length > 0 ? title : null,
                     creator: author.length > 0 ? author : null,
+                    sub: sub.length > 0 ? sub : null,
+                    isbn: isbn.length > 0 ? isbn : null,
                 }
                 contPages.innerHTML = ""
                 window.location.href = "#topo";
@@ -138,7 +144,9 @@ function renderButtonPages(pages, currentPage) {
 
 async function advancedWrite(fields, currentPage = 0) {
     let divEl = document.getElementById('teste')
+    let divElPages = document.getElementById('pages')
     divEl.innerHTML = ''
+    divElPages.innerHTML = ''
 
     setStatus('loading')
     let page = currentPage > 0 ? currentPage * 10 : currentPage
@@ -243,10 +251,14 @@ function setEvents() {
 
             let title = document.getElementById('title').value
             let author = document.getElementById('autor').value
+            let assunto = document.getElementById('assunto').value
+            let isbn = document.getElementById('isbn').value
 
             let data = {
                 title: title.length > 0 ? title : null,
                 creator: author.length > 0 ? author : null,
+                sub: assunto.length > 0 ? assunto : null,
+                isbn: isbn.length > 0 ? isbn : null,
             }
 
             advancedWrite(data)
