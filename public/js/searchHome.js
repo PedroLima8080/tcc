@@ -167,7 +167,19 @@ async function advancedWrite(fields, currentPage = 0) {
         let info = []
         let creators = []
         let locations = "";
-        let isbn = json.docs[i].pnx.control.recordid[0]
+        let isbn = json.docs[i].pnx.addata.isbn ? json.docs[i].pnx.addata.isbn : null;
+
+        let formatedIsbn = []
+        if(isbn){
+            isbn.forEach(function(i){
+                if(i)
+                    formatedIsbn.push(i+"<br>")
+            })
+            isbn = formatedIsbn;
+        }else{
+            isbn = 'Este livro não possui nenhum ISBN registrado!'
+        }
+
 
         json.docs[i].delivery.holding.forEach((location, index) => {
             locations += `${location.mainLocation}`;
@@ -186,9 +198,9 @@ async function advancedWrite(fields, currentPage = 0) {
             })
         }
 
-
-        divEl.innerHTML += `
-        <div class="book">
+        let divBook = document.createElement('div')
+        divBook.className = 'book'
+        divBook.innerHTML = `
             <img src="${asset}/img/open-book.png" class="mr-3 ml-3 p-4">
             <div class="infos">
                 <div class="d-flex align-items-center">
@@ -200,8 +212,18 @@ async function advancedWrite(fields, currentPage = 0) {
                 Está em:
                 <div><b>${locations}<b><div> 
             </div>
-            </div>
         `
+
+        divEl.insertAdjacentElement('afterbegin', divBook)
+        divBook.addEventListener('click', function(){
+            let detailsBook = {
+                title,
+                locations,
+                info,
+                isbn
+            }
+            toggleDatailsBook(detailsBook)
+        })
     }
 }
 
