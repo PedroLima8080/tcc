@@ -163,10 +163,20 @@ async function advancedWrite(fields, currentPage = 0) {
     }
 
     for (let i = 0; i < (json.info.last); i++) {
-        let title = json.docs[i].pnx.sort.title[0].split('/')[0]
+        let title = json.docs[i].pnx.sort.title[0].split('/')[0].replace(/\s+$/, '');
         let info = []
         let creators = []
+        let publisher = json.docs[i].pnx.display.publisher[0] ? json.docs[i].pnx.display.publisher[0] : null;
+        let local
+        if(publisher){
+            let result = publisher.split(':')
+            local = result[0]
+            publisher = result.length > 1 ? result[1] : null
+        }
+        console.log(publisher)
+        let creationDate = json.docs[i].pnx.sort.creationdate[0] ? json.docs[i].pnx.sort.creationdate[0] : null;
         let locations = "";
+        let author = json.docs[i].pnx.sort.author[0] ? json.docs[i].pnx.sort.author[0] : null;
         let isbn = json.docs[i].pnx.addata.isbn ? json.docs[i].pnx.addata.isbn : null;
 
         let formatedIsbn = []
@@ -220,7 +230,11 @@ async function advancedWrite(fields, currentPage = 0) {
                 title,
                 locations,
                 info,
-                isbn
+                isbn,
+                author,
+                creationDate,
+                publisher,
+                local
             }
             toggleDatailsBook(detailsBook)
         })
