@@ -36,7 +36,7 @@
             </div>
             <div class="generate-abnt">
                 <h2>Gerador de ABNT</h2>
-                <div class="group-abnt"><textarea id="input-abnt" class="input-abnt"></textarea><i class="far fa-copy" id="abnt-copy"></i></div>
+                <div class="group-abnt"><textarea disabled id="input-abnt" class="input-abnt"></textarea><button id="btn-abnt-copy"><i class="far fa-copy" id="i-abnt-copy"></i></button></div>
             </div>
         </div>
 

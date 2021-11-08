@@ -56,6 +56,10 @@ html {
     box-shadow: 0 0 10px 3px black;
 }
 
+.custom-msg.onTop {
+    top: 10px;
+}
+
 .custom-msg.top {
     top: 0.5em;
 }
