@@ -4,6 +4,8 @@ use App\Helper\Helper;
 use App\Http\Controllers\LibsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +49,5 @@ Route::get('/perfil', [ProfileController::class, 'profile'])
 
 Route::post('/perfil', [ProfileController::class, 'store'])
     ->middleware('auth:user,library');
+
+Route::post('/save-book', [BookController::class, 'save']);

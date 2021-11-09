@@ -17,7 +17,6 @@ class CreateFavBooksTable extends Migration
             $table->id();
             $table->string('identification', 200);
             $table->foreignId('id_user')->constrained('users');
-            $table->timestamps();
         });
     }
 

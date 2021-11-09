@@ -185,9 +185,8 @@ async function advancedWrite(fields, currentPage = 0) {
                 if(i)
                     formatedIsbn.push(i+"<br>")
             })
-            isbn = formatedIsbn;
         }else{
-            isbn = 'Este livro não possui nenhum ISBN registrado!'
+            formatedIsbn = 'Este livro não possui nenhum ISBN registrado!'
         }
 
 
@@ -215,7 +214,7 @@ async function advancedWrite(fields, currentPage = 0) {
             <div class="infos">
                 <div class="d-flex align-items-center">
                     <h4 class="mr-2">${title}</h4>
-                    <i class="far fa-bookmark mr-3 ml-auto h4" onclick='alert("${isbn}")' ></i>
+                    <i class="far fa-bookmark mr-3 ml-auto h4" ></i>
                 </div>
                 <p class="info">${info}</p>
                 <p>${ json.docs[i].pnx.display.creationdate[0]}</p>
@@ -224,8 +223,21 @@ async function advancedWrite(fields, currentPage = 0) {
             </div>
         `
 
-        divEl.insertAdjacentElement('afterbegin', divBook)
-        divBook.addEventListener('click', function(){
+        divBook.children[1].children[0].children[0].addEventListener('click', function(){
+            let detailsBook = {
+                title,
+                locations,
+                info,
+                isbn: formatedIsbn,
+                author,
+                creationDate,
+                publisher,
+                local
+            }
+            toggleDatailsBook(detailsBook)
+        })
+
+        divBook.children[1].children[0].children[1].addEventListener('click', function(){
             let detailsBook = {
                 title,
                 locations,
@@ -236,8 +248,11 @@ async function advancedWrite(fields, currentPage = 0) {
                 publisher,
                 local
             }
-            toggleDatailsBook(detailsBook)
+            saveBook(detailsBook)
         })
+
+        divEl.insertAdjacentElement('afterbegin', divBook)
+        
     }
 }
 

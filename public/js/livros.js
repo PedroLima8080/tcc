@@ -8,6 +8,18 @@ let btnCopy = document.getElementById('btn-abnt-copy')
 
 btnCopy.addEventListener('click', copyToClipBoard)
 
+function saveBook(detailsBook){
+    api.post('/save-book', detailsBook)
+    .then(response => response.json())
+    .then(data => {
+        //here is logic
+        console.log(data)
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
+}
+
 function copyToClipBoard() {
 
     inputAbnt.select();
@@ -20,7 +32,6 @@ function copyToClipBoard() {
 }
 
 function toggleDatailsBook(details) {
-    console.log(details)
     titleBook.innerHTML = details.title
     infoBook.innerHTML = `
     <h2>Informações do Livro</h2>
@@ -52,7 +63,7 @@ function toggleDatailsBook(details) {
         citacao[i] = i == 0 ? c : c.split('')[0] + "."
     })
     citacao = citacao.join(' ')
-    inputAbnt.value = `${citacao} (${details.creationDate}). ${details.title}.`
+    inputAbnt.value = `${citacao} (${details.creationDate}). ${details.title}. ${details.publisher}.`
     toggleModal()
 }
 

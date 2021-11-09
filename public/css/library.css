@@ -31,7 +31,6 @@
     width: 6px;
     background: transparent;
 }
-
 .book .infos::-webkit-scrollbar-thumb {
     background: #dad7d7;
 }

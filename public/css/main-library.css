@@ -51,6 +51,12 @@
     background: #dad7d7;
 }
 
+.book .infos h4:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
 @media screen and (max-width: 480px) {
     .book {
         padding: 25px 0px;

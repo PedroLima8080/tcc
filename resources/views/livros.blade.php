@@ -3,6 +3,7 @@
 @section('title', 'Livros')
 
 @section('content')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <a name="topo"></a>
 <div class="livros-page">
     <div class="background-image d-flex flex-column">
@@ -86,7 +87,8 @@
 <link rel="stylesheet" href="{{ asset('css/main-library.css') }}">
 @endpush
 @push('scripts')
-<script src="{{ asset('js/livros.js') }}"></script>
+<script src="{{ asset('js/api.js') }}"></script>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/livros.js') }}"></script>
 <script src="{{ asset('js/searchHome.js') }}"></script>
 @endpush
