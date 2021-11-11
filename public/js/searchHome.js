@@ -26,7 +26,7 @@ async function advancedRequest(fields, page = 0) {
     let count = 0
     let continuous = ",AND;"
 
-    Object.keys(resultFields).forEach(function (key) {
+    Object.keys(resultFields).forEach(function(key) {
         query += key + ",contains," + resultFields[key] + continuous
 
         count++
@@ -83,7 +83,7 @@ async function simpleWrite(title) {
         json.docs[i].delivery.holding.forEach((location, index) => {
             locations += `${location.mainLocation}`;
             locations += (index + 1) < json.docs[i].delivery.holding.length ? ',<br>' : ''
-            //,<br>
+                //,<br>
         })
 
 
@@ -115,7 +115,7 @@ function renderButtonPages(pages, currentPage) {
             btn.classList.add('ml-1')
             btn.classList.add('btn-login')
             btn.innerHTML = index
-            btn.addEventListener('click', function () {
+            btn.addEventListener('click', function() {
                 let title = document.getElementById('title').value
                 let author = document.getElementById('autor').value
                 let sub = document.getElementById('assunto').value
@@ -173,7 +173,6 @@ async function advancedWrite(fields, currentPage = 0) {
             local = result[0]
             publisher = result.length > 1 ? result[1] : null
         }
-        console.log(publisher)
         let creationDate = json.docs[i].pnx.sort.creationdate[0] ? json.docs[i].pnx.sort.creationdate[0] : null;
         let locations = "";
         let author = json.docs[i].pnx.sort.author[0] ? json.docs[i].pnx.sort.author[0] : null;
@@ -181,7 +180,7 @@ async function advancedWrite(fields, currentPage = 0) {
 
         let formatedIsbn = []
         if (isbn) {
-            isbn.forEach(function (i) {
+            isbn.forEach(function(i) {
                 if (i)
                     formatedIsbn.push(i + "<br>")
             })
@@ -193,7 +192,7 @@ async function advancedWrite(fields, currentPage = 0) {
         json.docs[i].delivery.holding.forEach((location, index) => {
             locations += `${location.mainLocation}`;
             locations += (index + 1) < json.docs[i].delivery.holding.length ? ',<br>' : ''
-            //,<br>
+                //,<br>
         })
 
         if (json.docs[i].pnx.sort.author) {
@@ -207,6 +206,11 @@ async function advancedWrite(fields, currentPage = 0) {
             })
         }
 
+        let savedBook = false
+        if (isbn) {
+            savedBook = await hasBook({ isbn: isbn[0] })
+        }
+
         let divBook = document.createElement('div')
         divBook.className = 'book'
         divBook.innerHTML = `
@@ -214,7 +218,7 @@ async function advancedWrite(fields, currentPage = 0) {
             <div class="infos">
                 <div class="d-flex align-items-center">
                     <h4 class="mr-2">${title}</h4>
-                    <i class="far fa-bookmark mr-3 ml-auto h4" ></i>
+                    <i class="fa${await savedBook.book ? 's' : 'r'} fa-bookmark mr-3 ml-auto h4" ></i>
                 </div>
                 <p class="info">${info}</p>
                 <p>${json.docs[i].pnx.display.creationdate[0]}</p>
@@ -223,7 +227,7 @@ async function advancedWrite(fields, currentPage = 0) {
             </div>
         `
 
-        divBook.children[1].children[0].children[0].addEventListener('click', function () {
+        divBook.children[1].children[0].children[0].addEventListener('click', function() {
             let detailsBook = {
                 title,
                 locations,
@@ -238,30 +242,30 @@ async function advancedWrite(fields, currentPage = 0) {
         })
 
         let tag = divBook.children[1].children[0].children[1];
-        tag.addEventListener('click', function () {
-            if(isbn){
-                hasBook({isbn: isbn[0]})
-                .then(data => {
-                    if(data.book){
-                        removeBook({isbn: isbn[0]})
-                        tag.className="far fa-bookmark mr-3 ml-auto h4"
-                    }else{
-                        let detailsBook = {
-                            title,
-                            locations,
-                            info,
-                            isbn,
-                            author,
-                            creationDate,
-                            publisher,
-                            local
+        tag.addEventListener('click', function() {
+            if (isbn) {
+                hasBook({ isbn: isbn[0] })
+                    .then(data => {
+                        if (data.book) {
+                            removeBook({ isbn: isbn[0] })
+                            tag.className = "far fa-bookmark mr-3 ml-auto h4"
+                        } else {
+                            let detailsBook = {
+                                title,
+                                locations,
+                                info,
+                                isbn,
+                                author,
+                                creationDate,
+                                publisher,
+                                local
+                            }
+                            saveBook(detailsBook)
+                            tag.className = "fas fa-bookmark mr-3 ml-auto h4"
                         }
-                        saveBook(detailsBook)
-                        tag.className="fas fa-bookmark mr-3 ml-auto h4"
-                    }
-                })
-                
-            }else{
+                    })
+
+            } else {
                 customMsg('Não é possível salvar este livro pois este não possui ISBN!', 'msg-danger')
             }
         })
@@ -338,6 +342,6 @@ function onLoad() {
     setStatus('insertTitle')
 }
 
-window.onload = function () {
+window.onload = function() {
     onLoad();
 }
