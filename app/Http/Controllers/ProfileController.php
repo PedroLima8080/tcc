@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateProfile;
+use App\Models\Book;
 use App\Models\Library;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class ProfileController extends Controller
         }else{
             $perfil = Library::where('id', Auth::guard('library')->user()->id)->first();
         }
-        return view('perfil', ['perfil' => $perfil]);
+        $savedBooks = Book::where('id_user', Auth::user()->id)->get();
+        return view('perfil', ['perfil' => $perfil, 'savedBooks' => $savedBooks]);
     }
 
     public function updateProfile(){

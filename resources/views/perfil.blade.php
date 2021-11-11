@@ -38,15 +38,14 @@
                             </div>
                             <hr>
                             <h2 class="card-title ml-md-2">Favoritos</h2>
-                            <div class="your-class">
-                                <div class="fav-book text-center ml-2 mr-2">
-                                    your fav book 1
-                                </div>
-                                <div class="fav-book text-center ml-2 mr-2">your fav book 2</div>
-                                <div class="fav-book text-center ml-2 mr-2">your fav book 3</div>
-                                <div class="fav-book text-center ml-2 mr-2">your fav book 4</div>
-                                <div class="fav-book text-center ml-2 mr-2">your fav book 5</div>
-                                <div class="fav-book text-center ml-2 mr-2">your fav book 6</div>
+                            <div class="your-class" id="fav-books">
+                                <!--
+                                                    <div class="fav-book text-center ml-2 mr-2">your fav book 2</div>
+                                                <div class="fav-book text-center ml-2 mr-2">your fav book 3</div>
+                                                <div class="fav-book text-center ml-2 mr-2">your fav book 4</div>
+                                                <div class="fav-book text-center ml-2 mr-2">your fav book 5</div>
+                                                <div class="fav-book text-center ml-2 mr-2">your fav book 6</div>
+                                            -->
                             </div>
                         </div>
                     </div>
@@ -75,15 +74,14 @@
                             </div>
                             <hr>
                             <h2 class="card-title ml-md-2">Favoritos</h2>
-                            <div class="your-class">
-                                <div class="fav-book text-center ml-2 mr-2">
-                                    your fav book 1
-                                </div>
-                                <div class="fav-book text-center ml-2 mr-2">your fav book 2</div>
-                                <div class="fav-book text-center ml-2 mr-2">your fav book 3</div>
-                                <div class="fav-book text-center ml-2 mr-2">your fav book 4</div>
-                                <div class="fav-book text-center ml-2 mr-2">your fav book 5</div>
-                                <div class="fav-book text-center ml-2 mr-2">your fav book 6</div>
+                            <div class="your-class" id="fav-books">
+                                <!--
+                                                    <div class="fav-book text-center ml-2 mr-2">your fav book 2</div>
+                                                <div class="fav-book text-center ml-2 mr-2">your fav book 3</div>
+                                                <div class="fav-book text-center ml-2 mr-2">your fav book 4</div>
+                                                <div class="fav-book text-center ml-2 mr-2">your fav book 5</div>
+                                                <div class="fav-book text-center ml-2 mr-2">your fav book 6</div>
+                                            -->
                             </div>
                         </div>
                     </div>
@@ -99,13 +97,37 @@
 @endpush
 
 @push('scripts')
+    <script src="{{ asset('js/api.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
-        $('.your-class').slick({
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
+        var $jq = jQuery.noConflict();
+
+        $jq(document).ready(function() {
+            let savedBooks = {!! json_encode($savedBooks, JSON_HEX_TAG) !!};
+            let i = 1;
+            savedBooks.forEach(book => {
+                api_unesp.get(
+                        `https://api-na.hosted.exlibrisgroup.com/primo/v1/search?vid=55UNESP_INST:UNESP&scope=BBA&tab=LIBS&q=isbn,contains,${book.identification}`
+                    )
+                    .then(data => {
+                        $jq('#fav-books').html($jq('#fav-books').html() +
+                            `<div class="fav-book text-center ml-2 mr-2">${data.docs[0].pnx.display.title[0]}</div>`
+                        )
+                        if (savedBooks.length == i) {
+                            $jq('.your-class').slick({
+                                infinite: true,
+                                slidesToShow: 3,
+                                slidesToScroll: 3
+                            });
+                        }
+                        i++
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+            })
+
         });
     </script>
 @endpush

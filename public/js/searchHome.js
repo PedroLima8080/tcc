@@ -175,7 +175,7 @@ async function advancedWrite(fields, currentPage = 0) {
         }
         let creationDate = json.docs[i].pnx.sort.creationdate[0] ? json.docs[i].pnx.sort.creationdate[0] : null;
         let locations = "";
-        let author = json.docs[i].pnx.sort.author[0] ? json.docs[i].pnx.sort.author[0] : null;
+        let author = json.docs[i].pnx.sort.author ? json.docs[i].pnx.sort.author[0] : null;
         let isbn = json.docs[i].pnx.addata.isbn ? json.docs[i].pnx.addata.isbn : null;
 
         let formatedIsbn = []
