@@ -5,7 +5,7 @@ use App\Http\Controllers\LibsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
-
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +35,7 @@ Route::get('/libs', [LibsController::class, 'sla'])
     ->middleware('auth:user,library')
     ->name('libs');
 
-Route::get('/favoritos', function(){
-    return view('favoritos');
-})->middleware('auth:user,library');
+Route::get('/favoritos', [FavoriteController::class, 'index'])->middleware('auth:user,library');
 
 Route::get('/perfil', [ProfileController::class, 'profile'])
     ->name('profile')
