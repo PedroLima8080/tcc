@@ -51,3 +51,5 @@ Route::post('/perfil', [ProfileController::class, 'store'])
     ->middleware('auth:user,library');
 
 Route::post('/save-book', [BookController::class, 'save']);
+Route::post('/has-book', [BookController::class, 'hasBook']);
+Route::post('/remove-book', [BookController::class, 'removeBook']);

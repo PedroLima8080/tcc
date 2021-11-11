@@ -14,7 +14,7 @@ function makeRequest(url, method, body){
     })
 }
 
-let api = {
+let api_laravel = {
     post: function(url, body){
         return makeRequest(url, 'post', body)
     }

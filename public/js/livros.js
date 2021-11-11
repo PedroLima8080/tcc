@@ -9,11 +9,30 @@ let btnCopy = document.getElementById('btn-abnt-copy')
 btnCopy.addEventListener('click', copyToClipBoard)
 
 function saveBook(detailsBook){
-    api.post('/save-book', detailsBook)
+    api_laravel.post('/save-book', detailsBook)
     .then(response => response.json())
     .then(data => {
         //here is logic
-        console.log(data)
+        customMsg('Livro salvo com sucesso!', 'msg-success')
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
+}
+
+async function hasBook(isbn){
+    return await api_laravel.post('/has-book', isbn)
+    .then(response => response.json())
+    .catch(function(error) {
+        console.log(error);
+    });
+}
+
+function removeBook(isbn){
+    api_laravel.post('/remove-book', isbn)
+    .then(response => response.json())
+    .then(data => {
+        customMsg('Livro removido com sucesso!', 'msg-success')
     })
     .catch(function(error) {
         console.log(error);
