@@ -28,9 +28,12 @@ async function makeRequestUnesp(url, method) {
 }
 
 let api_laravel = {
-    post: function(url, body) {
+    post: function(url, body = null) {
         return makeRequest(url, 'post', body)
-    }
+    },
+    delete: function(url, body = null) {
+        return makeRequest(url, 'delete', body)
+    },
 }
 
 let api_unesp = {

@@ -35,6 +35,14 @@ Route::get('/libs', [LibsController::class, 'sla'])
     ->middleware('auth:user,library')
     ->name('libs');
 
+Route::post('/confirm-lib/{id}', [LibsController::class, 'confirmLib'])
+    ->middleware('auth:user,library')
+    ->name('confirm-lib');
+
+Route::delete('/decline-lib/{id}', [LibsController::class, 'declineLib'])
+    ->middleware('auth:user,library')
+    ->name('decline-lib');
+
 Route::get('/favoritos', [FavoriteController::class, 'index'])->middleware('auth:user,library');
 
 Route::get('/perfil', [ProfileController::class, 'profile'])
