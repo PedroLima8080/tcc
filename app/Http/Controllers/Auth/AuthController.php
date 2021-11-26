@@ -11,6 +11,7 @@ use App\Http\Requests\Auth\registerRequest;
 use App\Models\Library;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -117,8 +118,15 @@ class AuthController extends Controller
         return redirect()->route('loginLibrary');
     }
 
-    public function logoutUser(){
-        Auth::logout();
+    public function logoutUser(Request $request){
+        if(Auth::guard('user')->check()){
+            Auth::guard('user')->logout();
+        }
+        if(Auth::guard('library')->check()){
+            Auth::guard('library')->logout();
+        }
+        $request->session()->flush();
+        $request->session()->regenerate();
         Helper::setCustomMsg(['msg-success', 'Logout realizado sucesso!']);
         return redirect('/login');
     }

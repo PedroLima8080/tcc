@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\PasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +23,14 @@ Route::get('/', function () {
     return redirect('/home');
 })->middleware('auth:user,library');
 
-Route::get('/home', function(){
+Route::get('/home', function () {
     $msg = Helper::getCustomMsg();
     return view('dashboard', ['msg' => $msg]);
-})->middleware('auth:user,library');
+})
+->middleware('auth:user,library')
+->name('home');
 
-Route::get('/livros', function(){
+Route::get('/livros', function () {
     return view('livros');
 })->middleware('auth:user,library');
 
@@ -48,8 +51,8 @@ Route::get('/favoritos', [FavoriteController::class, 'index'])->middleware('auth
 Route::get('/perfil', [ProfileController::class, 'profile'])
     ->name('profile')
     ->middleware('auth:user,library');
-    
-    Route::get('/editar-perfil', [ProfileController::class, 'updateProfile'])
+
+Route::get('/editar-perfil', [ProfileController::class, 'updateProfile'])
     ->name('edit-profile')
     ->middleware('auth:user,library');
 
@@ -59,3 +62,19 @@ Route::post('/perfil', [ProfileController::class, 'store'])
 Route::post('/save-book', [BookController::class, 'save']);
 Route::post('/has-book', [BookController::class, 'hasBook']);
 Route::post('/remove-book', [BookController::class, 'removeBook']);
+
+Route::get('/change-password', [PasswordController::class, 'index'])
+    ->name('changePassword')
+    ->middleware('guest');
+
+Route::post('/request-email-password', [PasswordController::class, 'requestEmailPassword'])
+    ->name('requestEmailPassword')
+    ->middleware('guest');
+
+Route::get('/update-password/{id}', [PasswordController::class, 'update'])
+    ->name('updatePassword')
+    ->middleware('guest');
+
+Route::post('/salve-new-password', [PasswordController::class, 'save'])
+    ->name('saveNewPassword')
+    ->middleware('guest');

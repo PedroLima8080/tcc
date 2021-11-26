@@ -11,6 +11,8 @@ class Library extends Authenticatable
 {
     use HasFactory;
 
+    protected $guard = 'library';
+
     public $table = 'library';
 
     /**

@@ -44,5 +44,5 @@ Route::post('library/register', [AuthController::class, 'registerLibrary'])
     ->middleware('guest');
 
 Route::post('/logout', [AuthController::class, 'logoutUser'])
-    ->middleware('auth:user')
+    ->middleware('auth:user,library')
     ->name('logout');

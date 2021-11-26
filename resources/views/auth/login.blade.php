@@ -64,6 +64,9 @@
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
                     Registre-se aqui
                 </a> <br>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('changePassword') }}">
+                    Esqueceu a senha
+                </a> <br>
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('loginLibrary') }}">
                     Logar-se como biblioteca
                 </a>

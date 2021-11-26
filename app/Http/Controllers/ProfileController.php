@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateProfile;
+use App\Mail\SendMailUser;
 use App\Models\Book;
 use App\Models\Library;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ProfileController extends Controller
 {
