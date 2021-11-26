@@ -151,7 +151,6 @@ async function advancedWrite(fields, currentPage = 0) {
     setStatus('loading')
     let page = currentPage > 0 ? currentPage * 10 : currentPage
     let json = await advancedRequest(fields, page)
-    console.log(json)
     let pages = Math.ceil(json.info.total / 10);
 
     renderButtonPages(pages, currentPage)
@@ -161,6 +160,9 @@ async function advancedWrite(fields, currentPage = 0) {
     if (json.info.total == 0) {
         setStatus('nothingData')
     }
+
+    data = await getLibByCnpj({ cnpj: '48.031.918/0004-77' });
+    let lib = data.lib
 
     for (let i = 0; i < (json.info.last); i++) {
         let title = json.docs[i].pnx.sort.title[0].split('/')[0].replace(/\s+$/, '');
@@ -211,6 +213,7 @@ async function advancedWrite(fields, currentPage = 0) {
             savedBook = await hasBook({ isbn: isbn[0] })
         }
 
+
         let divBook = document.createElement('div')
         divBook.className = 'book'
         divBook.innerHTML = `
@@ -236,7 +239,8 @@ async function advancedWrite(fields, currentPage = 0) {
                 author,
                 creationDate,
                 publisher,
-                local
+                local,
+                lib
             }
             toggleDatailsBook(detailsBook)
         })
@@ -258,7 +262,8 @@ async function advancedWrite(fields, currentPage = 0) {
                                 author,
                                 creationDate,
                                 publisher,
-                                local
+                                local,
+                                lib
                             }
                             saveBook(detailsBook)
                             tag.className = "fas fa-bookmark mr-3 ml-auto h4"

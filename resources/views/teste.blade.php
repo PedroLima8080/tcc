@@ -18,6 +18,13 @@
                     <th>AÇÕES</th>
                 </thead>
                 <tbody>
+                    @if (count($libraries) == 0)
+                        <tr>
+                            <td colspan="6">
+                                <h3 class="mt-3 text-center">Nenhuma Biblioteca Cadastrada</h3>
+                            </td>
+                        </tr>
+                    @endif
                     @foreach ($libraries as $lib)
                         <tr>
                             <td>{{ $lib->nome }}</td>
@@ -33,10 +40,14 @@
                             </td>
                             <td>
                                 @if ($lib->valida == 0)
-                                    <button class="btn btn-success" onclick="confirmLib({{ $lib->id }})"><i class="fas fa-check"></i></button>
+                                    <button class="btn btn-success" onclick="confirmLib({{ $lib->id }})"><i
+                                            class="fas fa-check"></i></button>
                                 @else
-                                    <button class="btn btn-danger" onclick="declineLib({{ $lib->id }})"><i class="fas fa-times"></i></button>
+                                    <button class="btn btn-danger" onclick="declineLib({{ $lib->id }})"><i
+                                            class="fas fa-times"></i></button>
                                 @endif
+                                <button class="btn btn-primary" onclick="verifyLib('{{ $lib->cnpj }}')"><i
+                                        class="fas fa-eye"></i></button>
                             </td>
                         </tr>
                     @endforeach
@@ -47,6 +58,7 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/api.js') }}"></script>
     <script src="{{ asset('js/libs.js') }}"></script>
 @endpush

@@ -61,6 +61,7 @@ Route::post('/perfil', [ProfileController::class, 'store'])
 
 Route::post('/save-book', [BookController::class, 'save']);
 Route::post('/has-book', [BookController::class, 'hasBook']);
+Route::post('/get-library-cnpj', [LibsController::class, 'getLibraryByCnpj']);
 Route::post('/remove-book', [BookController::class, 'removeBook']);
 
 Route::get('/change-password', [PasswordController::class, 'index'])

@@ -20,24 +20,19 @@
         <hr>
         <div class="infos-modal">
             <div class="book-info">
-                <!--<h2>Informações do Livro</h2>
-                <p>
-                    <b>Criadores:</b> <br>
-                    Pedro <br>
-                    Carlos
-                </p>
-                <p>
-                    <b>ISBN:</b> 123123123
-                </p>
-                <p>
-                    <b>Localizações:</b><br>
-                    Pedro<br>
-                    Carlos
-                </p>-->
             </div>
             <div class="generate-abnt">
-                <h2>Gerador de ABNT</h2>
-                <div class="group-abnt"><textarea disabled id="input-abnt" class="input-abnt"></textarea><button id="btn-abnt-copy"><i class="far fa-copy" id="i-abnt-copy"></i></button></div>
+                <div>
+                    <h2>Gerador de ABNT</h2>
+                    <div class="group-abnt">
+                        <textarea disabled id="input-abnt" class="input-abnt"></textarea>
+                        <button
+                            id="btn-abnt-copy"><i class="far fa-copy" id="i-abnt-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="right-side">
+                </div>
             </div>
         </div>
 

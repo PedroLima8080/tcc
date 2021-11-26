@@ -17,6 +17,8 @@ class CreateFavBooksTable extends Migration
             $table->id();
             $table->string('identification', 200);
             $table->foreignId('id_user')->constrained('users');
+            $table->integer('user_or_lib')->comment('0->user 1->lib')->default(0);
+            $table->integer('api_or_db')->comment('0->api 1->db')->default(0);
         });
     }
 

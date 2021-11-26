@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class FavBook extends Model
 {
     use HasFactory;
 
@@ -19,6 +19,8 @@ class Book extends Model
     protected $fillable = [
         'identification',
         'id_user',
+        'user_or_lib',
+        'api_or_db'
     ];
 
     public $timestamps = false;

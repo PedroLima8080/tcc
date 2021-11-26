@@ -20,8 +20,7 @@ class ProfileController extends Controller
         }else{
             $perfil = Library::where('id', Auth::guard('library')->user()->id)->first();
         }
-        $savedBooks = Book::where('id_user', Auth::user()->id)->get();
-        return view('perfil', ['perfil' => $perfil, 'savedBooks' => $savedBooks]);
+        return view('perfil', ['perfil' => $perfil]);
     }
 
     public function updateProfile(){
