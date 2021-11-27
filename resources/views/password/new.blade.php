@@ -16,7 +16,7 @@
             <div class="col-12">
                 <div class="tcc-form-control {{ $errors->has('password') ? 'tcc-is-invalid' : '' }}">
                     <input id="password" type="password" name="password" value="{{ old('password') }}" autocomplete="off"
-                        placeholder="password">
+                        placeholder="Senha">
                     <label for="password">Nova Senha</label>
                 </div>
                 @if ($errors->has('password'))
@@ -33,7 +33,7 @@
             <div class="col-12">
                 <div class="tcc-form-control {{ $errors->has('password') ? 'tcc-is-invalid' : '' }}">
                     <input id="password_confirmation" type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" autocomplete="off"
-                        placeholder="password_confirmation">
+                        placeholder="Confirmar senha">
                     <label for="password_confirmation">Confirmar Nova Senha</label>
                 </div>
                 @if ($errors->has('password_confirmation'))

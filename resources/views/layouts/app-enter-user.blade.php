@@ -19,6 +19,7 @@
 </head>
 <body>
     <div class="content">
+    @include('components.header')
         <div class="custom-msg top" id="custom-msg">
         </div>
         @yield('content')

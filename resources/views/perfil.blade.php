@@ -1,10 +1,10 @@
-@extends('layouts.app-perfil-layout')
+@extends('layouts.app-layout')
 
 @section('title', 'Home')
 
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
-    <div class="profile mt-5 px-5">
+    <div class="profile mt-5">
         @if (Auth::guard('user')->check())
             <div class="row">
                 <div class="col-md-12 ">
@@ -37,7 +37,6 @@
                                         class="btn-edit-profile"><i class="fas fa-pencil-alt"></i></button>
                                 </div>
                             </div>
-                            <hr>
                         </div>
                     </div>
                 </div>
@@ -63,8 +62,6 @@
                                         class="btn-edit-profile"><i class="fas fa-pencil-alt"></i></button>
                                 </div>
                             </div>
-                            <hr>
-                            <h2 class="card-title ml-md-2">Favoritos</h2>
                         </div>
                     </div>
                 </div>
@@ -74,9 +71,7 @@
 @endsection
 
 @push('styles')
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/main-library.css') }}">
 @endpush
 
 @push('scripts')

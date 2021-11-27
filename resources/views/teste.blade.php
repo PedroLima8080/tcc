@@ -7,7 +7,7 @@
     <div>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <h2 class="text-center mt-5">Bibliotecas Registradas</h2>
-        <div class="responsive-table w-75 mx-auto mt-5">
+        <div class="table-responsive w-75 mx-auto mt-5">
             <table class="table">
                 <thead>
                     <th>Nome</th>

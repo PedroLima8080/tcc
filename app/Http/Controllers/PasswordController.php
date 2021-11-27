@@ -23,20 +23,21 @@ class PasswordController extends Controller
     public function requestEmailPassword(Request $request)
     {
         $email = $request->email;
+        $account = $request->type_account;
 
-        $user = User::where('email', $email)->get()->first();
-        if ($user) {
-            $c = ChangePassword::create([
-                'id_user' => $user->id,
-                'email_user' => $user->email,
-                'user_or_lib' => 0
-            ]);
-            $link = 'http://127.0.0.1:8000/update-password/' . $c['id'];
-            Mail::to($user->email)->send(new SendMailUser($user->nome, $link));
-            Helper::setCustomMsg(['msg-success', 'Email enviado com sucesso!']);
-        } else {
+        if ($account == 0 || $account == 1) {
+            $user = User::where('email', $email)->get()->first();
             $lib = Library::where('email', $email)->get()->first();
-            if ($lib) {
+            if ($user && $account == 0) {
+                $c = ChangePassword::create([
+                    'id_user' => $user->id,
+                    'email_user' => $user->email,
+                    'user_or_lib' => 0
+                ]);
+                $link = 'http://127.0.0.1:8000/update-password/' . $c['id'];
+                Mail::to($user->email)->send(new SendMailUser($user->nome, $link));
+                Helper::setCustomMsg(['msg-success', 'Email enviado com sucesso!']);
+            } else if ($lib && $account == 1) {
                 $c = ChangePassword::create([
                     'id_user' => $lib->id,
                     'email_user' => $lib->email,
@@ -49,9 +50,12 @@ class PasswordController extends Controller
                 Helper::setCustomMsg(['msg-danger', 'Email não cadastrado no sistema!']);
                 return redirect()->route('changePassword');
             }
+            
+            return redirect()->route('login');
+        }else{
+            Helper::setCustomMsg(['msg-danger', 'Conta inválida!']);
+            return redirect()->route('changePassword');
         }
-
-        return redirect()->route('login');
     }
 
     public function update($id)

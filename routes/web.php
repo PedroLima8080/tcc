@@ -21,13 +21,12 @@ use App\Http\Controllers\PasswordController;
 
 Route::get('/', function () {
     return redirect('/home');
-})->middleware('auth:user,library');
+});
 
 Route::get('/home', function () {
     $msg = Helper::getCustomMsg();
     return view('dashboard', ['msg' => $msg]);
 })
-->middleware('auth:user,library')
 ->name('home');
 
 Route::get('/livros', function () {

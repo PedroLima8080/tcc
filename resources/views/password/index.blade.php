@@ -20,6 +20,25 @@
             </div>
         </div>
 
+        <div class="form-group row">
+            <div class="col-12">
+                <div class="tcc-form-control {{ $errors->has('type_account') ? 'tcc-is-invalid' : '' }}">
+                    <select name="type_account" id="type_account" class="form-control {{ $errors->has('type_account') ? 'is-invalid' : '' }}">
+                        <option value="" selected>--Tipo de Conta--</option>
+                        <option value="0">Usuário</option>
+                        <option value="1">Biblioteca</option>
+                    </select>
+                </div>
+                @if ($errors->has('type_account'))
+                    <div class="tcc-invalid-feedback">
+                        <span>
+                            {{ $errors->first('type_account') }}
+                        </span>
+                    </div>
+                @endif
+            </div>
+        </div>
+
         <div class="d-flex justify-content-center mt-4">
             <button class="btn btn-login text-white mx-auto">
                 Enviar

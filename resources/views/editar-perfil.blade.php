@@ -3,7 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
-    <div class="profile mt-5 px-5">
+    <div class="profile mt-5">
         @if (Auth::guard('user')->check())
             <div class="page-wrapper">
                 <div class="container-fluid">
@@ -15,7 +15,7 @@
                                     <form action="{{ route('profile') }}" method="POST" class="mt-5">
                                         @csrf
                                         <div class="form-group row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('nome') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="nome" type="text" name="nome"
@@ -31,7 +31,7 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('email') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="email" type="email" name="email"
@@ -47,7 +47,7 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('cnpj') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="data_nasc" type="date" name="data_nasc"
@@ -63,7 +63,7 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('genero') ? 'tcc-is-invalid' : '' }}">
                                                     <select name="genero" id="genero" class="form-control">
@@ -107,7 +107,7 @@
                                         @csrf
 
                                         <div class="form-group row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('nome') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="nome" type="text" name="nome"
@@ -123,7 +123,7 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('email') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="email" type="email" name="email"
@@ -139,7 +139,7 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('cnpj') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="cnpj" type="text" name="cnpj"
@@ -157,7 +157,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('fone') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="fone" type="text" name="fone"
@@ -173,7 +173,7 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('cep') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="cep" type="text" name="cep"
@@ -189,7 +189,7 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('cidade') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="cidade" type="text" name="cidade"
@@ -207,7 +207,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('endereco') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="endereco" type="text" name="endereco"
@@ -223,7 +223,7 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('bairro') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="bairro" type="text" name="bairro"
@@ -239,7 +239,7 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('uf') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="uf" type="text" name="uf"
@@ -255,7 +255,7 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 mb-3">
                                                 <div
                                                     class="tcc-form-control {{ $errors->has('numero') ? 'tcc-is-invalid' : '' }}">
                                                     <input id="numero" type="text" name="numero"
@@ -287,3 +287,7 @@
         @endif
     </div>
 @endsection
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+@endpush

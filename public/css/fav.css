@@ -2,6 +2,18 @@
     min-height: 100vh;
 }
 
+.main-content {
+    background-image: url("../img/bg_perfil.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+}
+
 
 /* modal */
 

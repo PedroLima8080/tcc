@@ -1,4 +1,4 @@
-@extends('layouts.app-perfil-layout')
+@extends('layouts.app-layout')
 
 @section('title', 'Home')
 
@@ -29,7 +29,7 @@
 
     </div>
 
-    <div class="fav mt-5 px-5">
+    <div class="fav px-3">
         <div class="row">
             <div class="col-md-12 ">
                 <div class="card mt-5 mb-5">
@@ -135,7 +135,6 @@
                                 getLibByCnpj({
                                     cnpj: cnpj
                                 }).then(data => {
-                                    console.log(savedBook)
                                     let lib = data.lib
                                     let divBook = document.createElement('div')
                                     divBook.className = 'book'

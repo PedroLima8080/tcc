@@ -149,13 +149,14 @@ async function advancedWrite(fields, currentPage = 0) {
     divElPages.innerHTML = ''
 
     setStatus('loading')
+    $jq('#teste').addClass('d-none')
+    $jq('#pages').addClass('d-none')
+
     let page = currentPage > 0 ? currentPage * 10 : currentPage
     let json = await advancedRequest(fields, page)
     let pages = Math.ceil(json.info.total / 10);
 
     renderButtonPages(pages, currentPage)
-
-    setStatus('clear')
 
     if (json.info.total == 0) {
         setStatus('nothingData')
@@ -163,9 +164,10 @@ async function advancedWrite(fields, currentPage = 0) {
 
     data = await getLibByCnpj({ cnpj: '48.031.918/0004-77' });
     let lib = data.lib
+    let t = 0;
 
-    for (let i = 0; i < (json.info.last); i++) {
-        let title = json.docs[i].pnx.sort.title[0].split('/')[0].replace(/\s+$/, '');
+    for (let i = 0; i < (json.info.last - (json.info.first - 1)); i++) {
+        let title = json.docs[i].pnx.sort.title[0].split('/')[0];
         let info = []
         let creators = []
         let publisher = json.docs[i].pnx.display.publisher[0] ? json.docs[i].pnx.display.publisher[0] : null;
@@ -275,8 +277,16 @@ async function advancedWrite(fields, currentPage = 0) {
             }
         })
 
+        divEl.insertAdjacentElement('beforeend', divBook)
 
-        divEl.insertAdjacentElement('afterbegin', divBook)
+        if (json.info.last - (json.info.first - 1) == (t + 1)) {
+            $jq('#teste').removeClass('d-none')
+            $jq('#pages').removeClass('d-none')
+            $jq('#teste').addClass('d-grid')
+            $jq('#pages').addClass('d-flex')
+            setStatus('clear');
+        }
+        t++
 
     }
 }

@@ -11,7 +11,7 @@
             </div>
 
             <div class="form-group row">
-                <div class="col-md-12">
+                <div class="col-md-12 mb-3">
                     <div class="tcc-form-control {{ $errors->has('nome') ? 'tcc-is-invalid' : '' }}">
                         <input id="nome" type="text" name="nome" value="{{ old('nome') }}" autocomplete="off"
                             placeholder=" ">
@@ -28,7 +28,7 @@
             </div>
 
             <div class="form-group row">
-                <div class="col-md-12">
+                <div class="col-md-12  mb-3">
                     <div class="tcc-form-control {{ $errors->has('cnpj') ? 'tcc-is-invalid' : '' }}">
                         <input id="cnpj" type="text" name="cnpj" value="{{ old('cnpj') }}" autocomplete="off"
                             placeholder=" ">
@@ -45,7 +45,7 @@
             </div>
 
             <div class="form-group row">
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3">
                     <div class="tcc-form-control {{ $errors->has('cep') ? 'tcc-is-invalid' : '' }}">
                         <input id="cep" type="text" name="cep" value="{{ old('cep') }}" autocomplete="off"
                             placeholder=" ">
@@ -60,7 +60,7 @@
                     @endif
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3">
                     <div class="tcc-form-control {{ $errors->has('cidade') ? 'tcc-is-invalid' : '' }}">
                         <input id="cidade" type="text" name="cidade" value="{{ old('cidade') }}" autocomplete="off"
                             placeholder=" ">
@@ -75,7 +75,7 @@
                     @endif
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3">
                     <div class="tcc-form-control {{ $errors->has('uf') ? 'tcc-is-invalid' : '' }}">
                         <input id="uf" type="text" name="uf" value="{{ old('uf') }}" autocomplete="off"
                             placeholder=" ">
@@ -92,7 +92,7 @@
             </div>
 
             <div class="form-group row">
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3">
                     <div class="tcc-form-control {{ $errors->has('bairro') ? 'tcc-is-invalid' : '' }}">
                         <input id="bairro" type="text" name="bairro" value="{{ old('bairro') }}" autocomplete="off"
                             placeholder=" ">
@@ -107,7 +107,7 @@
                     @endif
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3">
                     <div class="tcc-form-control {{ $errors->has('endereco') ? 'tcc-is-invalid' : '' }}">
                         <input id="endereco" type="text" name="endereco" value="{{ old('endereco') }}" autocomplete="off"
                             placeholder=" ">
@@ -122,7 +122,7 @@
                     @endif
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3">
                     <div class="tcc-form-control {{ $errors->has('numero') ? 'tcc-is-invalid' : '' }}">
                         <input id="numero" type="text" name="numero" value="{{ old('numero') }}" autocomplete="off"
                             placeholder=" ">
@@ -139,7 +139,7 @@
             </div>
 
             <div class="form-group row">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <div class="tcc-form-control {{ $errors->has('email') ? 'tcc-is-invalid' : '' }}">
                         <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="off"
                             placeholder=" ">
@@ -153,7 +153,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <div class="tcc-form-control {{ $errors->has('fone') ? 'tcc-is-invalid' : '' }}">
                         <input id="fone" type="text" name="fone" value="{{ old('fone') }}" autocomplete="off"
                             placeholder=" ">
@@ -170,7 +170,7 @@
             </div>
 
             <div class="form-group row">
-                <div class="col-md-12">
+                <div class="col-md-12 mb-3">
                     <div class="tcc-form-control {{ $errors->has('password') ? 'tcc-is-invalid' : '' }}">
                         <input id="password" type="password" name="password" value="{{ old('password') }}"
                             autocomplete="off" placeholder=" ">

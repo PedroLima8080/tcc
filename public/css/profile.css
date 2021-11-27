@@ -3,7 +3,7 @@ body {
     height: 100%;
 }
 
-.content {
+.main-content {
     background-image: url("../img/bg_perfil.png");
     background-position: center;
     background-repeat: no-repeat;
