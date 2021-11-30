@@ -1,5 +1,7 @@
 @extends('layouts.app-enter-user')
 
+@section('title', 'Login - Biblioteca')
+
 @section('content')
     <form method="POST" action="{{ route('loginLibrary') }}" id="form" autocomplete="off">
         @csrf

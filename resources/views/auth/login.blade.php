@@ -1,5 +1,7 @@
 @extends('layouts.app-enter-user')
 
+@section('title', 'Login')
+
 @section('content')
     <form method="POST" action="{{ route('login') }}" id="form" novalidate >
         @csrf

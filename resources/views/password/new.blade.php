@@ -1,5 +1,7 @@
 @extends('layouts.app-enter-user')
 
+@section('title', 'Nova Senha')
+
 @section('content')
     <form method="POST" action="{{ route('saveNewPassword') }}" id="form" novalidate >
         @csrf

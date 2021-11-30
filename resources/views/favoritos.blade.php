@@ -1,6 +1,6 @@
 @extends('layouts.app-layout')
 
-@section('title', 'Home')
+@section('title', 'Livros Favoritos')
 
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}">

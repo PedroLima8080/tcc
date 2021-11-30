@@ -1,7 +1,7 @@
 @extends('layouts.app-layout')
 
 
-@section('title', 'Livros')
+@section('title', 'Bibliotecas Registradas')
 
 @section('content')
     <div>

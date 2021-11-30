@@ -1,5 +1,7 @@
 @extends('layouts.app-enter-user')
 
+@section('title', 'Solicitar Troca de Senha')
+
 @section('content')
     <form method="POST" action="{{ route('requestEmailPassword') }}" id="form" novalidate >
         @csrf

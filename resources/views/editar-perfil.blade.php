@@ -1,6 +1,6 @@
 @extends('layouts.app-layout')
 
-@section('title', 'Home')
+@section('title', 'Editar Perfil')
 
 @section('content')
     <div class="profile mt-5">

@@ -1,5 +1,7 @@
 @extends('layouts.app-enter-user')
 
+@section('title', 'Registre-se Aqui - Biblioteca')
+
 @section('content')
     <div class="dev">
         <form method="POST" action="{{ route('registerLibrary') }}" id="form" novalidate>
