@@ -16,32 +16,32 @@ use GuzzleHttp\Middleware;
 */
 
 Route::get('/login', [AuthController::class, 'loginUserForm'])
-    ->middleware('guest:user,guest:library,')
+    ->middleware('guest:user,library,')
     ->name('login');
 
 Route::post('/login', [AuthController::class, 'loginUser'])
-    ->middleware('guest:user,guest:library,');
+    ->middleware('guest:user,library,');
 
 Route::get('/register', [AuthController::class, 'registerUserForm'])
-    ->middleware('guest:user,guest:library,')
+    ->middleware('guest:user,library,')
     ->name('register');
 
 Route::post('/register', [AuthController::class, 'registerUser'])
-    ->middleware('guest:user,guest:library,');
+    ->middleware('guest:user,library,');
 
 Route::get('/library/login', [AuthController::class, 'loginLibraryForm'])
-    ->middleware('guest:user,guest:library,')
+    ->middleware('guest:user,library,')
     ->name('loginLibrary');
 
 Route::post('/library/login', [AuthController::class, 'loginLibrary'])
-    ->middleware('guest:user,guest:library,');
+    ->middleware('guest:user,library,');
 
 Route::get('library/register', [AuthController::class, 'registerLibraryForm'])
-    ->middleware('guest:user,guest:library,')
+    ->middleware('guest:user,library,')
     ->name('registerLibrary');
 
 Route::post('library/register', [AuthController::class, 'registerLibrary'])
-    ->middleware('guest:user,guest:library,');
+    ->middleware('guest:user,library,');
 
 Route::post('/logout', [AuthController::class, 'logoutUser'])
     ->middleware('auth:user,library')
