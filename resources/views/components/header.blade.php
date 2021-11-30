@@ -17,7 +17,7 @@
             <li class="nav-item {{ Request::path() === 'favoritos' ? 'route-active' : '' }}">
                 <a class="h4 route" href="favoritos">FAVORITOS</a>
             </li>
-            @if (Auth::guard('user')->check() && Auth::guard('library')->check())
+            @if (Auth::guard('user')->check() || Auth::guard('library')->check())
             <li class="nav-item d-lg-none {{ Request::path() === 'favoritos' ? 'route-active' : '' }}">
                 <a class="h4 route" href="{{ route('profile') }}">PERFIL</a>
             </li>
@@ -27,7 +27,7 @@
                     <a href="{{ route('libs') }}" class="h4 route">VER BIBLIOTECAS</a>
                 @endif
             </li>
-            @if (Auth::guard('user')->check() && Auth::guard('library')->check())
+            @if (Auth::guard('user')->check() || Auth::guard('library')->check())
             <li class="nav-item d-lg-none {{ Request::path() === 'favoritos' ? 'route-active' : '' }}">
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
